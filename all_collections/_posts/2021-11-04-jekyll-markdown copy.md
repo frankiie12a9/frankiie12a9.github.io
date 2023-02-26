@@ -1,6 +1,6 @@
 ---
-layout: post
 title: Hướng dẫn setup ssl config để làm việc cùng lúc với nhiều tải khoản Github
+layout: post
 date: 2023-02-27
 categories: ["git", "github", "dev"]
 ---
