@@ -1,6 +1,6 @@
 ---
 layout: post
-title: &#123; Hướng-dẫn-setup-ssl-config-để-làm-việc-cùng-lúc-với-nhiều-tải-khoản-Github &#125;
+title: &#123; Hướng dẫn setup ssl config để làm việc cùng lúc với nhiều tải khoản Github &#125;
 date: 2023-02-27
 categories: ["git", "github", "dev"]
 ---
