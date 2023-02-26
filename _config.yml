@@ -1,10 +1,10 @@
-title: Jekyll Serial Programmer
+title: Frankiie's Corner
 markdown: kramdown
 
 # for atom feed
-author:
-  name: Sharad Raj Singh Maurya
-  email: dev_sharad@outlook.com
+# author:
+#   name: Sharad Raj Singh Maurya
+#   email: dev_sharad@outlook.com
 
 plugins:
   - jemoji
