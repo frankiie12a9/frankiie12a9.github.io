@@ -1,7 +1,7 @@
 ---
 layout: post
 # title: How to setup SSL config to work with multiple Github accounts
-title: Jekyll Markdown Copy
+title: "Jekyll Markdown Copy"
 date: 2023-02-27
 categories: ["git", "github", "dev"]
 ---
