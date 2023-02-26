@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hướng dẫn setup SSL config để làm việc cùng lúc với nhiều tải khoản Github
+title: How to setup SSL config to work with multiple Github accounts
 date: 2023-02-27
 categories: ["git", "github", "dev"]
 ---
