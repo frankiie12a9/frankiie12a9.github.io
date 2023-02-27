@@ -50,6 +50,7 @@ main {
 }
 .article {
   margin-bottom: 3rem;
+  width: 726px;
 }
 
 .article-header {
@@ -161,7 +162,7 @@ main {
   margin: 1rem 0;
 }
 .content img.emoji {
-	margin: 0 !important;
+  margin: 0 !important;
 }
 
 /* pre , code */
