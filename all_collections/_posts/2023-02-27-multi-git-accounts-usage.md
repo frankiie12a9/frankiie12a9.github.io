@@ -12,6 +12,8 @@ Nếu làm việc với Github một thời gian, chúng ta có thể để ý r
 
 Thông thường, mỗi chúng ta sẽ có cho mình một tài khoản Github để có thể phục vụ công việc hằng ngày. Tuy nhiên vào một ngày nọ, chúng ta nhận được một công việc mới (cty, partime, etc), và giờ ta phải cần thêm một tài khoảng Github riêng nữa để phục vụ cho công việc đó, tất nhiên trên cùng một máy 🙂. Làm thế nào để ta có thể cài đặt cho máy hỗ trợ hai tài khoản mà khi dùng không bị trùng lặp đây? Trong bài viết này, mình sẽ chỉ cho bạn cách cài đặt để có thể sử dụng hai tài khoản Github riêng biệt trên cùng một máy tính nha.
 
+## Getting Started
+
 ### Create a New SSH Key
 
 <!-- We need to generate a unique SSH key for our second GitHub account. -->
