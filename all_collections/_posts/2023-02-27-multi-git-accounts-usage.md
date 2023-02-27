@@ -6,8 +6,6 @@ date: 2023-02-27
 categories: ["git", "github", "dev"]
 ---
 
-# Hướng dẫn setup SSL config để làm việc cùng lúc với nhiều tải khoản Github
-
 GitHub provides two ways of connecting to git repositories, namely SSH and HTTPS. HTTPS requires you to supply an access token every time you push to a repository. SSH allows you to push code without remembering your username and token every time you push code to a GitHub repository.
 
 So you have a personal GitHub account—everything is working perfectly. But then, you get a new job, and you now need to be able to push and pull to multiple accounts. How do you do that? I'll show you how!
