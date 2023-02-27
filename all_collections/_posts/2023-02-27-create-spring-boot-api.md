@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Create a web API with Java Spring Boot Boot
+title: Create a web API with Java Spring Boot
 date: 2023-02-27
 categories: ["java", "spring-boot", "dev", "en"]
 ---
