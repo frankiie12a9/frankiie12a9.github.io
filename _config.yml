@@ -1,10 +1,6 @@
 title: Frankiie's Corner
 markdown: kramdown
 
-# for atom feed
-# author:
-#   name: Sharad Raj Singh Maurya
-#   email: dev_sharad@outlook.com
 # encoding: UTF-8
 
 # gems:
@@ -20,7 +16,7 @@ collections_dir: all_collections
 collections:
   posts:
     output: true
-    # permalink: /:path
+    permalink: /:path
 
 defaults:
   - scope:
