@@ -16,7 +16,6 @@ collections_dir: all_collections
 collections:
   posts:
     output: true
-    permalink: /:path
 
 defaults:
   - scope:

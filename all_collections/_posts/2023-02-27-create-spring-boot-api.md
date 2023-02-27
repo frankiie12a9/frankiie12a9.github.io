@@ -230,7 +230,7 @@ import com.harrykien.notes.payload.NoteRequest;
 import com.harrykien.notes.payload.NoteResponse;
 
 public interface NoteService {
-     Iterable<Note> getNotes();
+     List<Note> getNotes();
 
      Note updateNote(Long id, NoteRequest request);
 
@@ -278,8 +278,8 @@ Ok, now we need to provide the implementation for the not implemented service me
 
 ```java
 @Override
-public Iterable<Note> getNotes() {
-    Iterable<Note> response = noteRepository.findAll();
+public List<Note> getNotes() {
+    List<Note> response = noteRepository.findAll();
     return response;
 }
 ```
@@ -387,8 +387,8 @@ As you noticed that, in the `NoteService` interface and `NoteServiceImpl` class,
 
 ```java
 @GetMapping
-public ResponseEntity<Iterable<Note>> getNotes() {
-     Iterable<Note> response = noteService.getNotes();
+public ResponseEntity<List<Note>> getNotes() {
+     List<Note> response = noteService.getNotes();
      return new ResponseEntity< >(response, HttpStatus.OK);
 }
 ```
