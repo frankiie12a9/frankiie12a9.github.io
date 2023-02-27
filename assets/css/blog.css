@@ -92,7 +92,6 @@ main {
   margin: 4rem 0 3rem 0;
 }
 .articles .article {
-  /* padding: 2rem; */
   padding: 1rem;
   background: var(--gray-3);
   border-radius: 15px;
