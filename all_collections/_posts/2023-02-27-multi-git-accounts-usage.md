@@ -18,7 +18,7 @@ So you have a personal GitHub account—everything is working perfectly. But the
 
 Trước tiên, chúng ta cần phải tạo SSH key cho tài khoản Github thứ hai mà ta muốn dùng. Ở vị trí terminal hiện tại, chúng ta chuyển hướng tới `.ssh` folder và tạo key thông qua câu lệnh sau đây.
 
-```bash
+```
 $ cd ~/.ssh
 $ ssh-keygen -t rsa -b 4096 -C "email-mà-bạn-đăng-kí-cho-tài-khoản-github"
 ```
@@ -34,7 +34,7 @@ Bạn có thể điền tên file vào chỗ trống trên và ấn enter, mình
 
 Tiếp đến sẽ là hai cái prompt yêu cầu điền **passphrase** cho file vừa khởi tạo, mục này không bắt buộc nên các bạn có thể để trống và ấn enter hai lần là xong.
 
-```bash
+```
 Enter passphrase (empty for no passphrase):
 Enter same passphrase again:
 ```
@@ -43,7 +43,7 @@ Enter same passphrase again:
 
 Oki, sau khi nhập passphrase xong, SSH key sẽ được lưu ở hai file riêng biệt, **identification** tức private key sẽ được lưu ở `id_rsa_forwork` còn **public key** thì lưu ở `id_rsa_forwork.pub` như kết quả ở dưới đây.
 
-```bash
+```
 Your identification has been saved in id_rsa_forwork
 Your public key has been saved in id_rsa_for.pub
 The key fingerprint is:
@@ -92,7 +92,7 @@ Sau đó, click vào cái nút **New SSH key** để điền thông tin key.
 
 Chúng ta đã tạo SSH key (public và private) tiếp đó là đã thêm nó vào tài khoản Github mà chúng ta muốn dùng đúng không nào. Tuy nhiên như thế vẫn chưa xong, để SSH có thể nhận diện ra được là SSH key (được lưu ở `id_rsa_forwork`) và tài khoản Github đã được kết nối với nhau thông qua một cái file (`id_rsa_forwork.pub`) cụ thể nào đó. Ta cần phải cho SSH biết điều đó bằng cách thêm nó vào danh sách identity của SSH.
 
-```bash
+```
 $ ssh-add ~/.ssh/id_rsa_forwork
 ```
 
@@ -104,7 +104,6 @@ $ ssh-add ~/.ssh/id_rsa_forwork
 
 ```
 $ eval `ssh-agent -s`
-
 ```
 
 Và thực hiện lại câu lệnh thêm vào identity.
@@ -115,8 +114,9 @@ $ ssh-add ~/.ssh/id_rsa_forwork
 
 Nếu không có vấn đề gì xảy ra thì ta sẽ nhận được kết quả thông báo identity đã được thêm thành công như dưới đây nha.
 
-```bash
+```
 Identity added: id_rsa_forwork (newstufflover@gmail.com)
+
 ```
 
 ### Create a Config File
@@ -125,24 +125,30 @@ Identity added: id_rsa_forwork (newstufflover@gmail.com)
 
 Sắpp xonggg rồiiii. Giờ ta đang có hai tài khoản Github, một cái đang dùng, giờ ta muốn thêm một tài khoản khác để dùng song song mà không bị trùng lặp nhau, điều đó cũng có nghĩa là ta phải tạo riêng Github config cho mỗi tài khoản đúng không nào. Oki, giờ ta vào file SSH config bằng câu lệnh sau.
 
-```bash
+```
+
 $ vim ~/.ssh/config
+
 ```
 
 Sau khi mở file `~/.ssh/config`, chúng ta có thể sẽ thấy một vài cái config cho tài khoản github. (tùy từng người có thể sẽ không giống nhau nha)
 
-```bash
-  # giả sử cái này là config cho tài khoản github trước đó
-  Host github.com
-  HostName github.com
-  User git
-  IdentityFile ~/.ssh/id_rsa_forpersonal
+```
 
-  # thì cái này sẽ là config cho tài khoản bây giờ
-  Host github.com-forwork    # để ý dòng này nha
-  HostName github.com
-  User git
-  IdentityFile ~/.ssh/id_rsa_forwork  # dòng nàyyy nữa nha
+# giả sử cái này là config cho tài khoản github trước đó
+
+Host github.com
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_rsa_forpersonal
+
+# thì cái này sẽ là config cho tài khoản bây giờ
+
+Host github.com-forwork # để ý dòng này nha
+HostName github.com
+User git
+IdentityFile ~/.ssh/id_rsa_forwork # dòng nàyyy nữa nha
+
 ```
 
 Để có thể dễ dàng phân biệt đâu là config của tài khoản trước đó, và đâu là config của tài khoản bây giờ, ta sẽ
@@ -162,11 +168,13 @@ Giờ chính thức xong rồi này. Xong thì xong nhưng cũng phải test cá
 
 Ta cần tạo một cái directory để chứa project.
 
-```bash
+```
+
 $ cd ~/
 $ mkdir test-repo
 $ cd test-repo
 $ touch README.md
+
 ```
 
 Giờ ta vào Github để tạo một cái remote project (nhớ là đăng nhập bằng tài khoản chúng ta vừa dùng để config nha)
@@ -176,27 +184,33 @@ Giờ ta vào Github để tạo một cái remote project (nhớ là đăng nh�
 Ta khởi tạo local repository cho project.
 
 ```
+
 $ git init
 $ git add .
 $ git commit -m "initial commit"
+
 ```
 
 Chỗ này _khoan_ một chút nha. Còn nhớ cái **Host** trên `~/.ssh/config` mà chúng ta vừa config cho tài khoản Github hiện giờ chứ? Đúng nó rồi đấy. Lúc push project lên remote, ta sẽ sử dụng Host là **github.com-forwork** chứ không còn là **github.com** như trước nữa (vì nó đã thuộc về tài khoản trước đó roài)
 
 ```
+
 $ git remote add origin git@github.com-forwork:codeforfut17/test-add-mutiple-github-account.git
 $ git push origin main
+
 ```
 
 Pangggggg..... Done nha!
 
-```bash
+```
+
 Enumerating objects: 4, done.
 Counting objects: 100% (4/4), done.
 Writing objects: 100% (4/4), 263 bytes | 263.00 KiB/s, done.
 Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
 To github.com-forwork:codeforfut17/test-add-mutiple-github-account.git
- * [new branch]      main -> main
+
+- [new branch] main -> main
 
 ```
 
