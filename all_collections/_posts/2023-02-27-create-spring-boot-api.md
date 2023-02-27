@@ -438,16 +438,22 @@ Here is some common controller annotations explanation:
 - **@RestController** indicates that the data processed by each method will be returned directly as the response body instead of passing to the view like **@Controller** does.
 
 - **@RequestMapping("/api/notes")** indicates the route of this controller, so that whenever from outside we access the _/api/notes_ all actions will be redirected to this controller to process.
-- **@GetMapping** indicates the route with a HTTP GET capability representing for this method, however as you noticed that there is a parameter _id_ inside it, it means we need a _id_ value to be able to perform this request to get a specific note item.
-- **@PutMapping** indicates the route with HTTP PUT capability representing for this method, it also need a parameter _id_ to be able to get and update specific note item.
-- **@DeleteMapping** indicates the route with HTTP DELETE capability, it needs a parameter _id_ to get and delete specific note item.
-- **@PostMapping** indicates the route with HTTP POST capability, it perform creating a new note item.
-- **@PathVariable** - indicates that a method parameter should be bound to a URI template variable
-- **@Valid** - marks a property, method parameter or method return type for validation cascading
-- **@RequestBody** - indicates a method parameter should be bound to the body of the web request.
-- **@ResponseBody** - signals that this advice is rendered straight into the response body.
 
-`/src/main/java/com/harrykien/notes/runner/DatabaseInitialization.java`
+- **@GetMapping** indicates the route with a HTTP GET capability representing for this method, however as you noticed that there is a parameter _id_ inside it, it means we need a _id_ value to be able to perform this request to get a specific note item.
+
+- **@PutMapping** indicates the route with HTTP PUT capability representing for this method, it also need a parameter _id_ to be able to get and update specific note item.
+
+- **@DeleteMapping** indicates the route with HTTP DELETE capability, it needs a parameter _id_ to get and delete specific note item.
+
+- **@PostMapping** indicates the route with HTTP POST capability, it perform creating a new note item.
+
+- **@PathVariable** - indicates that a method parameter should be bound to a URI template variable
+
+- **@Valid** - marks a property, method parameter or method return type for validation cascading
+
+- **@RequestBody** - indicates a method parameter should be bound to the body of the web request.
+
+- **@ResponseBody** - signals that this advice is rendered straight into the response body.
 
 ## Add a fake database
 
