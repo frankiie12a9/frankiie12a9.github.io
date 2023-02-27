@@ -6,8 +6,9 @@ markdown: kramdown
 #   name: Sharad Raj Singh Maurya
 #   email: dev_sharad@outlook.com
 # encoding: UTF-8
-gems:
-  - jekyll-paginate-v2
+
+# gems:
+#   - jekyll-paginate-v2
 
 plugins:
   - jemoji
@@ -28,18 +29,16 @@ defaults:
       layout: "post"
       permalink: /posts/:title/
 exclude: ["sitemap.xml", "feed.xml", "LICENSE", "README.md"]
-
 # Explicitly turn off the old code
-paginate: nil
-paginate_path: nil
-
+# paginate: nil
+# paginate_path: nil
 # Pagination Settings
-pagination:
-  enabled: true
-  per_page: 3
-  offset: 2
-  permalink: "/page/:num/"
-  title: ":title - page :num of :max"
-  limit: 0
-  sort_field: "date"
-  sort_reverse: true
+# pagination:
+#   enabled: true
+#   per_page: 3
+#   offset: 2
+#   permalink: "/page/:num/"
+#   title: ":title - page :num of :max"
+#   limit: 0
+#   sort_field: "date"
+#   sort_reverse: true
