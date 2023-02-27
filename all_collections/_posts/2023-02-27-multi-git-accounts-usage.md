@@ -3,7 +3,7 @@ layout: post
 # title: How to setup SSL config to work with multiple Github accounts
 title: Hướng dẫn setup SSL config để làm việc cùng lúc với nhiều tải khoản Github
 date: 2023-02-27
-categories: ["git", "github", "dev"]
+categories: ["git", "github", "dev", "vi"]
 ---
 
 GitHub provides two ways of connecting to git repositories, namely SSH and HTTPS. HTTPS requires you to supply an access token every time you push to a repository. SSH allows you to push code without remembering your username and token every time you push code to a GitHub repository.
