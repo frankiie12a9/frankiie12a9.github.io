@@ -138,10 +138,10 @@ Here are some commonly used commands to interact with your postgres database.
 - After entered inside a particular database, if you want to back to previous position, for example, `your_postgres_user` location
 
 ```
-<your_postgres_user>=# \c <your_postgres_user>
+<your_current_database>=# \c <your_postgres_user>
 ```
 
-- Finally, quite the current database session
+- Finally, quit the current database session
 
 ```
 <your_postgres_user>=# \q
@@ -149,7 +149,7 @@ Here are some commonly used commands to interact with your postgres database.
 
 ### Working with Postgres UI management tool
 
-Let's say your are a UI person, and you want to interact with the database via UI application such [PGAdmin](https://www.pgadmin.org/)?... Oke let's setup the PGAdmin to use it locally.
+Let's say you are a UI person, and you want to interact with the database via UI application such [PGAdmin](https://www.pgadmin.org/)?... Oke let's setup the PGAdmin to use it locally.
 
 Just like the process we have done above, we first need to pull its image from DockerHub. Here I'm going to to use the **dpage/pgadmin14**.
 
