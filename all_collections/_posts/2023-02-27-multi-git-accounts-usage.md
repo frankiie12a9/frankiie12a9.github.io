@@ -8,9 +8,9 @@ categories: ["git", "github", "dev", "vi"]
 
 # Hướng dẫn setup SSL config để làm việc cùng lúc với nhiều tải khoản Github
 
-GitHub provides two ways of connecting to git repositories, namely SSH and HTTPS. HTTPS requires you to supply an access token every time you push to a repository. SSH allows you to push code without remembering your username and token every time you push code to a GitHub repository.
+Nếu làm việc với Github một thời gian, chúng ta có thể để ý rằng GitHub cung cấp hai cách kết nối với remote git repository, cách thứ nhất đó là thông qua [SSH](https://en.wikipedia.org/wiki/Secure_Shell), và cách thứ hai là [HTTPS](https://www.cloudflare.com/learning/ssl/what-is-https/). Trong đó, HTTPS yêu cầu bạn cung cấp mã thông báo truy cập mỗi khi bạn đẩy vào kho lưu trữ. SSH cho phép bạn đẩy mã mà không cần nhớ tên người dùng và mã thông báo của bạn mỗi khi bạn đẩy mã vào kho lưu trữ GitHub.
 
-So you have a personal GitHub account—everything is working perfectly. But then, you get a new job, and you now need to be able to push and pull to multiple accounts. How do you do that? I'll show you how!
+Thông thường, mỗi chúng ta sẽ có cho mình một tài khoản Github để có thể phục vụ công việc hằng ngày. Tuy nhiên vào một ngày nọ, chúng ta nhận được một công việc mới (cty, partime, etc), và giờ ta phải cần thêm một tài khoảng Github riêng nữa để phục vụ cho công việc đó, tất nhiên trên cùng một máy 🙂. Làm thế nào để ta có thể cài đặt cho máy hỗ trợ hai tài khoản mà khi dùng không bị trùng lặp đây? Trong bài viết này, mình sẽ chỉ cho bạn cách cài đặt để có thể sử dụng hai tài khoản Github riêng biệt trên cùng một máy tính nha.
 
 ### Create a New SSH Key
 
