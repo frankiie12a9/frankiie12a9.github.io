@@ -8,12 +8,12 @@ categories: ["container", "docker", "dev", "en"]
 
 ## Introduction
 
-PostgreSQL, also referred to as Postgres is an open source relational database management system
+PostgreSQL, also referred to as Postgres is an open source relational database management system.
 It is widely used for web development, data analysis, and business intelligence.
 It's popular not only it's fully open source, but also its high level of compliance with the SQL standard and inclusion of additional features that simplify working with complex datasets at scale
 that supports SQL-based engine and [other query languages](https://www.postgresql.org/docs/current/xplang.html).
 
-To work with PostgreSQL, we had to do a verbose installation setup physically on our local machine that
+In the past, to work with PostgreSQL, we had to do a verbose installation setup physically on our local machine that
 require a lot of configuration and resource. In this tutorial, we will containerize the PostgreSQL database and deploy using Docker. This avoids adding packages to your host machine and helps to isolate your database from the other parts of your stack. Make sure you’ve got Docker installed before you continue.
 
 ## Getting Started
@@ -46,7 +46,7 @@ $ docker run \
     -d postgres
 ```
 
-Here are some explanation of the command above:
+Here are a few explanations for the command above:
 
 - `--name`: This tag assigns a name to the container, which can be used to identify and reference it later.
 
@@ -169,7 +169,7 @@ docker run --name local-pgadmin \
            -d dpage/pgadmin4
 ```
 
-It looks complicated a bit right? OK, here are some explanations:
+It looks complicated a bit right? OK, here are the explanation:
 
 - `--network`: This is used to specify which network a container should join when it is created or run.
 - `--link`: The is used to create a link between two containers on the same network. This allows the containers to communicate using only their names or aliases instead of their IP addresses.
