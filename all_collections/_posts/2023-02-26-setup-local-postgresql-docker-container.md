@@ -48,7 +48,7 @@ $ docker run \
     -p 5432:5432 \
     -e POSTGRES_USER=<your_postgres_user> \
     -e POSTGRES_PASSWORD=<your_postgres_user_password> \
-    -v postgres:/var/lib/postgresql/data
+    -v postgres:/var/lib/postgresql/data \
     -d postgres
 ```
 
@@ -64,7 +64,7 @@ Here are a few explanations for the command above:
 
 - `-d`: This tag runs the container in detached mode, which means it runs in the background and does not block your terminal.
 
-After running the container, you should see the container named <your_container_name> from currently running container list
+After running the container, you should see the container named `<your_container_name>` from currently running container list.
 
 ```
 $ docker ps
