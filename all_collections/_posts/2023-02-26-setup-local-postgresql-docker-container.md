@@ -3,7 +3,7 @@ layout: post
 title: Containerize PostgreSQL database and Deploy it using Docker
 # title: Cài đặt môi trường cho PostgreSQL database và Deploy container sử dụng Docker
 date: 2023-02-28
-categories: ["container", "docker", "dev", "vi"]
+categories: ["container", "docker", "dev", "en"]
 ---
 
 ## Introduction
