@@ -157,15 +157,15 @@ $ docker network connect <network_name> <your_postgres_container>
 
 Ok, now we need to run the PGAdmin container.
 
-```
-docker run --name local-pgadmin
-           -p 5050:5050
-           -e "PGADMIN_LISTEN_PORT=5050"
-           -e "PGADMIN_DEFAULT_EMAIL=<your_email>"
-           -e "PGADMIN_DEFAULT_PASSWORD=<your_password>"
-           -e "PGADMIN_SERVER_BIND_ADDRESS=0.0.0.0"
-           --network <network_name>
-           --link <your_postgres_container_name>
+```bash
+docker run --name local-pgadmin \
+           -p 5050:5050 \
+           -e "PGADMIN_LISTEN_PORT=5050" \
+           -e "PGADMIN_DEFAULT_EMAIL=<your_email>" \
+           -e "PGADMIN_DEFAULT_PASSWORD=<your_password>" \
+           -e "PGADMIN_SERVER_BIND_ADDRESS=0.0.0.0" \
+           --network <network_name> \
+           --link <your_postgres_container_name> \
            -d dpage/pgadmin4
 ```
 
@@ -180,7 +180,7 @@ After connecting and wiring two containers into the same network, we must verify
 $ docker network inspect <network_name>
 ```
 
-You should see there is a `Containers` property with two containers, which one is the Postgres and the other one is the PGAdmin container values inside it like following.
+You should see there is a `Containers` property with two container values, one is the Postgres and the other one is the PGAdmin container inside it like following.
 
 ```
 {
