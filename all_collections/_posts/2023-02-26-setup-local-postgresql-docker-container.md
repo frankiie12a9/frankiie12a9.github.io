@@ -6,8 +6,6 @@ date: 2023-02-28
 categories: ["container", "docker", "dev", "en"]
 ---
 
-## Introduction
-
 PostgreSQL, also referred to as Postgres is an open source relational database management system.
 It is widely used for web development, data analysis, and business intelligence.
 It's popular not only it's fully open source, but also its high level of compliance with the SQL standard and inclusion of additional features that simplify working with complex datasets at scale
@@ -15,6 +13,14 @@ that supports SQL-based engine and [other query languages](https://www.postgresq
 
 In the past, to work with PostgreSQL, we had to do a verbose installation setup physically on our local machine that
 require a lot of configuration and resource. In this tutorial, we will containerize the PostgreSQL database and deploy using Docker. This avoids adding packages to your host machine and helps to isolate your database from the other parts of your stack. Make sure you’ve got Docker installed before you continue.
+
+In this article, we will do:
+
+- Setting up the PostgreSQL database instance running on your local machine by using Docker.
+- Configure and run the PostgreSQL container.
+- Interact with the Postgres database from within the running container.
+- Creating the Docker network to connect and wire multiple containers to work together.
+- Setting up the Postgres database management tool such PGAdmin using Docker.
 
 ## Getting Started
 
@@ -57,6 +63,20 @@ Here are a few explanations for the command above:
 - `-v`: This tag mounts a volume to the container. A volume is a persistent storage that can survive container restarts and deletions. In this case, it mounts a volume named postgres (which will be created if it does not exist) to the directory.
 
 - `-d`: This tag runs the container in detached mode, which means it runs in the background and does not block your terminal.
+
+After running the container, you should see the container named <your_container_name> from currently running container list
+
+```
+$ docker ps
+```
+
+Or we are carefully check the the detailed logs inside the running container.
+
+```
+$ docker logs <your_container_name> -f
+```
+
+- `-f`: This is the following log output option. you can view more command options by `docker logs --help`.
 
 ### Test the database connection
 
@@ -218,12 +238,12 @@ And after logged in (remember to use `"PGADMIN_DEFAULT_EMAIL=<your_email>` and `
 
 ## Conclusion
 
-PostgreSQL was considered not a good choice when compared to another SQL-based engines. However, it's getting better and... better to become the one of the best and most-loved one right now. Through this tutorial, you learned how to setup for containerizing it via Docker instead of doing the verbose installation on the local machine.
-
-And as you can see containerization simplifies the setting up process to boost and helps our development quickly spin up in all aspects such:
+That's all!! Through this article, you can see several benefits of containerization that simplifies the setting up process to boost and helps our development quickly spin up in all aspects such:
 
 - _portability_: the containers can run consistently on any infrastructure, while traditional deployment may require different configurations for different environments
 
 - _resource-efficiency_: containers only package the necessary libraries and dependencies for the code, while traditional deployment may include redundant or unused components. Containers also share the host OS kernel, while traditional deployment may require a full OS copy for each application.
 
 - _scalability_: it can be easily added and updated to meet changing demands, while traditional deployment may involve more complex processes and downtime.
+
+PostgreSQL was considered a not good choice when compared to another SQL-based engines. However, it's getting better and... better to become the one of the best and most-loved one right now. It was long a bit, but I hope you found something helpful.
