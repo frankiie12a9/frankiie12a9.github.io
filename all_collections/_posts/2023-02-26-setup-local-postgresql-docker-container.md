@@ -70,7 +70,7 @@ After running the container, you should see the container named `<your_container
 $ docker ps
 ```
 
-Or we are carefully check the the detailed logs inside the running container.
+Or if we want carefully observe the detailed logs inside the running container.
 
 ```
 $ docker logs <your_container_name> -f
@@ -157,7 +157,7 @@ Just like the process we have done above, we first need to pull its image from D
 $ docker pull dpage/pgadmin4
 ```
 
-Create a separate network for Postgres and PGAdmin containers, so that they can interact with the each other.
+Create a separate network for Postgres and PGAdmin containers, so that they can interact with each other.
 
 ```
 $ docker network create <network_name>
