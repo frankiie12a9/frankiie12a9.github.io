@@ -163,7 +163,7 @@ Create a separate network for Postgres and PGAdmin containers, so that they can 
 $ docker network create <network_name>
 ```
 
-Verify whether network is created successfully.
+Verify whether network was created successfully.
 
 ```
 $ docker network ls
