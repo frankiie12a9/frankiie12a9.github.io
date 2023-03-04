@@ -2,7 +2,7 @@
 layout: post
 title: Create a web API with Java Spring Boot
 date: 2023-02-27
-categories: ["java", "spring-boot", "dev", "en"]
+categories: ["java", "springboot", "dev", "en"]
 ---
 
 In this tutorial I will guide you how to build a simple controller-based web API that uses **Java**, **Spring Boot**, and **Spring Data JPA**.
