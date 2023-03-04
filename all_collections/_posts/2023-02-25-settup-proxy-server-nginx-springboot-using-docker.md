@@ -309,7 +309,7 @@ Copy đoạn code dưới đây rồi paste vào file `nginx.conf` (kiểm tra x
 # địng nghĩa user cho nginx instance hiện tại
 user nginx
 
-# chỉ đinh tham số "auto" cho worker process cho nginx instance
+# chỉ đinh tham số "auto" cho worker process (let Nginx decide what and how to optimize itself!)
 worker_process auto;
 
 # set errors logging nếu xảy ra lỗi
@@ -330,7 +330,8 @@ http {
   include /etc/nginx/mime.types;
   default_type application/octet-stream;
 
-  # đây chính là một `virtual server` của Nginx instance. block `location` nó sẽ tiếp nhận HTTP request đc
+  # đây chính là một `virtual server` của Nginx instance.
+  # block `location` nó sẽ tiếp nhận HTTP request đc
   # gửi đến port 80 và sau đó nó sẽ chuyển tiếp đến `http://<tên_springboot_container>:<container_port>` như một proxy server
   server {
     listen 80;
@@ -381,9 +382,9 @@ Ta bật Devtools (ấn F12) rồi kiểm tra xem request có được nhận b�
 
 ![nginx-connection](https://user-images.githubusercontent.com/123849429/222831055-152ff0b1-8dea-4ecf-b764-7aaaad3414f1.png)
 
-> _BONUS_, trong trường hợp bạn muốn check acess logs hay error logs của Nginx, thì thực hiện.
+> _BONUS_, trong trường hợp bạn muốn check acess logs hay error logs của Nginx, thì thực hiện theo duới đây.
 
-- Đi vào bên trong đang container
+- Đi vào bên trong container đang chạy
   > $ docker exec -it <tên_nginx_container> /bin/bash
 - kiểm tra access logs thông qua `tail`, `acesss.log`
   > root@0ad9b9663c2e:/# tail -f var/log/nginx/access.log
