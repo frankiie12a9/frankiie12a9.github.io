@@ -116,7 +116,7 @@ Tuy nhiên, kiểm tra danh sách những images không thôi là chưa đủ. C
 $ docker image inspect <tên_image>:<tag_của_image>
 ```
 
-Khi câu lệnh được thực thi, bạn sẽ thấy rất nhiều giá trị được lưu dưới dạng JSON, và trong đó sẽ có những trường như `RepoTags`, `Config`, va `Entrypoint`. Nếu giá trị của chúng khớp với những gì chúng ta gán ở trên (Dockerfile) thì là oke rồi đó nha.
+Khi câu lệnh được thực thi, bạn sẽ thấy rất nhiều giá trị được lưu dưới dạng JSON, và trong đó sẽ có những trường như `RepoTags`, `Config`, và `Entrypoint`. Nếu giá trị của chúng khớp với những gì chúng ta gán ở trên (Dockerfile) thì là oke rồi đó nha.
 
 ```
  "Id": "sha256:8a334dd1xxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -148,6 +148,10 @@ Sau khi image đã được tạo, giờ là lúc chúng ta dùng nó để run 
 ```
 $  docker run --name <tên_container> -p <host_port>:<container_port> -d -t <tên_image>:<tag_của_image>
 ```
+
+Giải thích:
+
+- `-d`: hay đầy đủ là `--detach`, thẻ này ám chỉ container sẽ được chạy trong chế độ _background_ (tức là process sẽ được run mà ta không nhìn thấy nó hoạt động, hay không tương tác trực tiếp thông qua giao diện, e.g., `Logging`, `System monitoring` , trái ngược với _foreground_ là process là ta sẽ nhìn thấy và có thể tương tác trực tiếp, e.g., `VSCode`, `Browser`)
 
 Oke, xong rồi. Giờ chúng ta cần test xem container đã được run thành công hay không.
 
