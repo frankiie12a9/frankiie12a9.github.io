@@ -1,9 +1,8 @@
 ---
 layout: post
 title: Cài đặt một Nginx Proxy Server cơ bản cho Java Spring Boot app sử dụng Docker
-
-date: 2023-02-28
-categories: ["nginx", "container", "docker", "dev", "vi"]
+date: 2023-01-25
+categories: ["nginx", "container", "dev", "vi"]
 ---
 
 Trong mạng máy tính, proxy server dựa trên giao thức TCP được coi như là một _trạm trung gian_ đứng giữa máy chủ (host machine) và người dùng (end-user). Khi người dùng gửi request đến máy chủ, thay vì để request được gửi thẳng trực tiếp đến máy chủ, proxy server sẽ tiếp nhận những request đó, xử lí (tùy vào business logic), rồi sau đó mới chuyển tiếp qua cho máy chủ. Quá trình tiếp nhận request từ người dùng tới proxy server còn được gọi là _downstream flow_, **downstream ám chỉ vị trí của người dùng đến proxy** còn quá trình chuyển tiếp request từ proxy server tới máy chủ được gọi là _upstream flow_, **upstream ám chỉ vị trí từ proxy đến máy chủ**.
@@ -21,7 +20,7 @@ Trong bài viết lần này, chúng ta sẽ cùng nhau làm:
 - Cài đặt và tạo Docker network để Spring Boot và Nginx containers có thể làm việc chung
 - Cài đặt proxy server cho Spring Boot app sử dụng Nginx
 
-## Yêu cầu
+## Prerequisites
 
 - Docker hoặc Docker desktop
 - POSIX OS (Linux, Unix)
