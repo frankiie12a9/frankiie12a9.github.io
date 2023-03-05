@@ -49,6 +49,8 @@ Tuy nhiên, từ phiên bản Java 8 trở đi tới giờ, Java đã được n
 
 Trong bài viết lần này, chúng ta sẽ sử dụng sự nâng cấp, cải tiến của những bản Java gần đây và thao tác một vài tricks hữu ích như xử lí mảng, list, và chuỗi để phục vụ công việc thường ngày nhé.
 
+## Indexing
+
 - [Biến đổi list thành mảng]()
 - [Biến đổi mảng thày list]()
 - [Gán giá trị mặc định cho mảng có size nhất định]()
@@ -67,6 +69,8 @@ Trong bài viết lần này, chúng ta sẽ sử dụng sự nâng cấp, cải
 - [Tìm tổng của tất cả các phần từ có trong list]()
 - [Biến đổi mảng hai chiều thành list hai chiều]()
 - [Sắp xếp các chuỗi trong một list]()
+
+## Getting Started
 
 ### Biến đổi list thành mảng
 
