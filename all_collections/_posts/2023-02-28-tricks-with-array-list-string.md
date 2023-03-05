@@ -2,7 +2,7 @@
 layout: post
 title: Tổng Hợp một số Tricks Dùng cho xử lí mảng, list, và chuỗi
 date: 2023-03-01
-categories: ["java", "dev", "trick", "en"]
+categories: ["java", "dev", "trick", "vi"]
 ---
 
 Trước đây, chắc hẳn chúng ta đã nghe được những anh chị dev đi trước nói vể ngôn ngữ Java như là một thứ gì đó _rườm rà_, _dài dòng_, _cũ kĩ_, và _không linh họat_, etc. Quả thật, lúc mới học, khi nhìn vào một bộ [Java keywords](https://www.wikiwand.com/en/List_of_Java_keywords) chắc hẳn ai đó cũng đã choáng, trong đó có mình 😊. Lấy một vài ví dụ cụ thể hơn về những nhược điểm trên, để có thể khai báo hàm Main và in được dòng `Hello world` ra console, chúng ta cần phải khai báo những keywords như `public`, `static`, `void`, `main`, `(String[] args)`, `System`, `out`, và `println()`... Khá là dài dòng.
