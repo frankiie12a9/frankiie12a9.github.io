@@ -100,14 +100,16 @@ List<String> list_str = Arrays.stream(arr_str)
 // size là `5`
 int[] arrayOfZeroes = new int[5];
 
-Arrays.fill(arrayOfZeroes, 0); // giá trị mặc định là `0`
+// giá trị mặc định là `0`
+Arrays.fill(arrayOfZeroes, 0);
 // output: [0, 0, 0, 0, 0]
 ```
 
 ### Gán giá trị mặc định cho list có size nhất định
 
 ```java
-List<Integer> listOfZero = Collections.nCopies(5, 0) // size 5, default value `0`
+// size là  `5`, giá trị mặc định là `0`
+List<Integer> listOfZero = Collections.nCopies(5, 0)
                                       .stream()
                                       .map(e -> e)
                                       .toList();
@@ -252,7 +254,7 @@ List<Integer> oddList = listOf.stream()
 // output: [1, 3]
 ```
 
-### Tách các phần tử trong mảng thành một list dựa trên một dãy pham vi [fromIndex,..,toIndex]
+### Tách các phần tử trong mảng thành một list dựa trên một dãy phạm vi [fromIndex,..,toIndex]
 
 ```java
 int[] arr = {1, 2, 3, 4, 5};
