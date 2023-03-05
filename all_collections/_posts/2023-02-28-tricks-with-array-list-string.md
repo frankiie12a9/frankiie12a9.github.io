@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tổng Hợp một số Tricks Dùng cho xử lí mảng, list, và chuỗi
+title: Tổng Hợp một số Tricks Dùng cho xử lí mảng, list, và chuỗi trong Java
 date: 2023-03-01
 categories: ["java", "dev", "trick", "vi"]
 ---
