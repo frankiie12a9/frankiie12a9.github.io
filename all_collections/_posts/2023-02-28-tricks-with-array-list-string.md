@@ -220,9 +220,10 @@ public class Employee {
 }
 
 public class Search {
+
   // tìm employee già nhất dựa trên tuổi
   public static Employee oldest(Employee[] employees) {
-     Employee result = Arrays.stream(personList)
+     Employee result = Arrays.stream(employees)
                            .max(Comparator.comparing(Employee::getAge))
                            .orElseThrow(NoSuchElementException::new);
 
