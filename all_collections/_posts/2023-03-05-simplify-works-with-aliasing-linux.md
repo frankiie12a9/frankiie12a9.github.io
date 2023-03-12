@@ -122,13 +122,6 @@ alias sys_users='cut -d: -f1 /etc/passwd | sort'
 alias c='clear'
 ```
 
-- Make a directory and all parent directories with verbosity.
-
-```
-alias mkdir='mkdir -p -v'
-
-```
-
 #### #Git
 
 - In ra lịch sử Git log của project:
