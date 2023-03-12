@@ -221,3 +221,5 @@ Giờ thì lên tài khoản Github vừa rồi ấn F5 và kiểm tra thôi �
 ## Conclusion
 
 Thông qua bài viết này, chúng ta đã cùng nhau tạo một config riêng cho tài khoản Github phụ để có thể làm việc riêng lẻ mà không bị trùng lặp với tài khoản đang dùng trên cùng một máy. Bài có hơi dài nhưng nếu bạn đọc đến đoạn kết thì mình cảm ơn nha 😊.
+
+**_Mình viết blog để tổng hợp lại những gì mình đã học, và cũng như học cách trình bày sao cho người khác có thể hiểu được, nên bài viết có thể tồn tại bug hoặc chưa hoàn thiện đâu đó. Nếu có gì liên quan đến bài viết, cần giúp debug, etc. thì đừng ngần ngại mà hãy cứ nhắn tin cho mình qua [Facebook](https://www.facebook.com/frankiie12a9/) nha._**
