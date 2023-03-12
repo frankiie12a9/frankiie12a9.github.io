@@ -250,7 +250,7 @@ scp_do() {
 Cách dùng
 
 ```
-$ scp -v <file> <user>@<ip> <destination_path>
+$ scp_do -v <file> <user>@<ip> <destination_path>
 ```
 
 - Thực thi gửi HTTP request sử dụng CURL
