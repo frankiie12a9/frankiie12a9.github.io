@@ -206,53 +206,6 @@ Kết quả minh họa:
 
 ![image](https://user-images.githubusercontent.com/123849429/224536195-55820e2a-d5d1-4fca-8fd4-dc417b236911.png)
 
-- Thực thi gửi HTTP request sử dụng CURL
-
-```bash
-# cài aliasing cho `curl`
-alias curl_='curl'
-
-# lí do phải cài, mình có giải thích ở phần `scp` bên trên rồi nha.
-
-curl_do() {
-  local method=$1
-  local url=$2
-  local body=$3
-
-  case $method in
-    "GET") # nếu request là GET
-      curl_ -v "http://$url" | json ;;
-
-    "DELETE") # nếu request là DELETE
-      curl_ -v -X $method "http://$url" | json ;;
-
-    "PUT") # nếu request là PUT
-      curl_ -v -X $method "http://$url" -H "Content-Type: application/json" -d $body | json ;;
-
-    "POST") # nếu request là POST
-      curl_ -v -X $method "http://$url" -H "Content-Type: application/json" -d $body | json ;;
-
-    *)
-      echo "Exception: invalid HTTP request method: $method"
-      echo "E.g. curl_do <GET | DELETE | PUT | POST> <url> <body>"
-      exit 1
-      ;;
-  esac
-}
-```
-
-Cách dùng:
-
-```bash
-# GET
-$ curl_do GET localhost:xxxx
-
-# POST
-$ curl_do POST localhost:xxxx '{"username": "foo", "password":"bar"}'
-
-# PUT, DELETE tương tự nha...
-```
-
 - Hiển thị nội dung của directory ở định dạng giống như những nhánh cây. (Giống _tree_ command nhưng nhìn gọn hơn về cấu trúc).
 
 ```bash
@@ -298,6 +251,53 @@ Cách dùng
 
 ```
 $ scp -v <file> <user>@<ip>:/destination_path
+```
+
+- Thực thi gửi HTTP request sử dụng CURL
+
+```bash
+# cài aliasing cho `curl`
+alias curl_='curl'
+
+# lí do phải cài, mình có giải thích ở phần `scp` bên trên rồi nha.
+
+curl_do() {
+  local method=$1
+  local url=$2
+  local body=$3
+
+  case $method in
+    "GET") # nếu request là GET
+      curl_ -v "http://$url" | json ;;
+
+    "DELETE") # nếu request là DELETE
+      curl_ -v -X $method "http://$url" | json ;;
+
+    "PUT") # nếu request là PUT
+      curl_ -v -X $method "http://$url" -H "Content-Type: application/json" -d $body | json ;;
+
+    "POST") # nếu request là POST
+      curl_ -v -X $method "http://$url" -H "Content-Type: application/json" -d $body | json ;;
+
+    *)
+      echo "Exception: invalid HTTP request method: $method"
+      echo "E.g. curl_do <GET | DELETE | PUT | POST> <url> <body>"
+      exit 1
+      ;;
+  esac
+}
+```
+
+Cách dùng:
+
+```bash
+# GET
+$ curl_do GET localhost:xxxx
+
+# POST
+$ curl_do POST localhost:xxxx '{"username": "foo", "password":"bar"}'
+
+# PUT, DELETE tương tự nha...
 ```
 
 - Tìm file hoặc directory ở một ví trí cụ thể bằng pattern, rồi xóa nó:
