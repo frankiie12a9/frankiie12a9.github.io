@@ -238,7 +238,7 @@ scp_do() {
   local body=$2
 
   if [[ -n "$file" && -n "$host"  &&  -n "$path" ]]; then
-    scp_ -v $file $host $body
+    scp_ -v $file $body
   else
     echo "EXCEPTION: invalid arguments."
     echo "E.g. $ scp -v <file> <user>@<ip>:/destination_path"
@@ -247,7 +247,7 @@ scp_do() {
 }
 ```
 
-Cách dùng
+Cách dùng:
 
 ```
 $ scp_do -v <file> <user>@<ip> <destination_path>
@@ -336,7 +336,7 @@ $ find_rm <location_muốn_tìm> d <pattern>
 
 #### #Git
 
-- Tạo git cho project.
+- Tạo git cho project:
 
 ```bash
 git_init() {
@@ -353,7 +353,7 @@ git_init() {
 }
 ```
 
-- Kiểm tra xem hiện tại đang ở branch nào trong project.
+- Kiểm tra xem hiện tại đang ở branch nào trong project:
 
 ```bash
 git_br() {
