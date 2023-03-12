@@ -238,7 +238,7 @@ scp_do() {
   local body=$2
 
   if [[ -n "$file" && -n "$host"  &&  -n "$path" ]]; then
-    scp_ -v $file $body
+    scp_ -v $file $host $body
   else
     echo "EXCEPTION: invalid arguments."
     echo "E.g. $ scp -v <file> <user>@<ip>:/destination_path"
@@ -250,7 +250,7 @@ scp_do() {
 Cách dùng
 
 ```
-$ scp -v <file> <user>@<ip>:/destination_path
+$ scp -v <file> <user>@<ip> <destination_path>
 ```
 
 - Thực thi gửi HTTP request sử dụng CURL
