@@ -25,7 +25,7 @@ Thành thật, dù có là người yêu thích _gõ phím_ hay sử dụng term
 
 > $ curl -verbose -X PUT "http://localhost:xxxx" -Header "Content-Type: application/json" --data '"{"age":"18"}"'
 
-Trong bài viết này, mình sẽ chia sẻ cách mình sử dụng [Aliasing](), và `Function` trong ngôn ngữ lập trình [Bash Script]() để đơn giản hóa, và tối ưu các command line thường dùng ở môi trường Linux nhé.
+Trong bài viết này, mình sẽ chia sẻ cách mình sử dụng [Aliasing](https://www.bing.com/ck/a?!&&p=270da9eb087de49fJmltdHM9MTY3ODU3OTIwMCZpZ3VpZD0yNTA3YTg3NC1hM2NiLTY3NGQtMjc0OC1iYWU0YTI0ZDY2YTgmaW5zaWQ9NTIxOA&ptn=3&hsh=3&fclid=2507a874-a3cb-674d-2748-bae4a24d66a8&psq=alias+linux+wiki&u=a1aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvQWxpYXNfJTI4Y29tbWFuZCUyOQ&ntb=1), và `Function` trong ngôn ngữ lập trình [Bash Script](<https://www.wikiwand.com/en/Bash_(Unix_shell)>) để đơn giản hóa, và tối ưu các command line thường dùng ở môi trường Linux nhé.
 
 ## Prerequisites
 
