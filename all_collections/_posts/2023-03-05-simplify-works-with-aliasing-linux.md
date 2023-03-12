@@ -127,7 +127,7 @@ alias c='clear'
 - In ra lịch sử Git log của project với format `<commit_hash> <origin> <commit_message>` trên cùng một dòng:
 
 ```bash
-alias gl='git log --oneline'
+alias glo='git log --oneline'
 ```
 
 - In ra lịch sử Git log của project với format cụ thể:
