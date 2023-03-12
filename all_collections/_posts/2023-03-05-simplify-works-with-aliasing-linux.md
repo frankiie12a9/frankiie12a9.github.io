@@ -468,4 +468,4 @@ alias my_aliases='echo "
 
 Trên là những thứ mình tông hợp lại để phục vụ công việc thường ngày trong môi trường Linux. Nó giúp mình tối ưu, và tiết kiệp kha khá thời gian gõ phím và Google để tìm lại những lệnh cụ thể đã dùng. Hi vọng bạn tìm được điều gì đó hữu ích trong bài viết này. Chúc bạn học tập thành công.
 
-_Mình viết blog để tổng hợp lại những gì mình đã học, và cũng như học cách trình bày sao cho người khác có thể hiểu được, nên bài viết có thể tồn tại bug hoặc chưa hoàn thiện đâu đó. Nếu có gì liên quan đến bài viết, cần giúp debug, etc. thì đừng ngần ngại mà hãy cứ nhắn tin cho mình qua [Facebook](https://www.facebook.com/frankiie12a9/) nha._
+**_Mình viết blog để tổng hợp lại những gì mình đã học, và cũng như học cách trình bày sao cho người khác có thể hiểu được, nên bài viết có thể tồn tại bug hoặc chưa hoàn thiện đâu đó. Nếu có gì liên quan đến bài viết, cần giúp debug, etc. thì đừng ngần ngại mà hãy cứ nhắn tin cho mình qua [Facebook](https://www.facebook.com/frankiie12a9/) nha._**
