@@ -45,7 +45,7 @@ Bước đầu tiên, mở `.bashrc` file để thao tác:
 $ vim ~/.bashrc
 ```
 
-Nếu bạn sử dụng [zsh]() thay vì `bashrc` (mình sử dụng zsh):
+Nếu bạn sử dụng [zsh](https://www.wikiwand.com/en/Z_shell) thay vì `bashrc` (mình sử dụng zsh):
 
 ```
 $ vim ~/.zshrc
@@ -55,7 +55,7 @@ $ vim ~/.zshrc
 
 #### #Network
 
-- In ra tất cả các [TCP](link) ports đang được active, sau đó in ra các thống kê liên quan đến chúng:
+- In ra tất cả các [TCP](l) ports đang được active, sau đó in ra các thống kê liên quan đến chúng:
 
 ```bash
 alias tcp_active='echo "> Here are TCP Listening ports:" && netstat -at && echo "\n> Statistics for all ports:" && netstat -st'
@@ -71,7 +71,7 @@ Kết quả minh họa
 
 ![tcp active](https://user-images.githubusercontent.com/123849429/224535430-e6c4ba0c-78b4-4b92-820b-1f819887f64b.png)
 
-- In ra tất cả các [UDP](link) ports đang được active, sau đó in ra các thống kê liên quan đến chúng:
+- In ra tất cả các [UDP](https://www.wikiwand.com/en/User_Datagram_Protocol) ports đang được active, sau đó in ra các thống kê liên quan đến chúng:
 
 ```bash
 alias udp_active='echo "> Here are UDP Listening ports:" && netstat -au && echo "\n> Statistics for all ports:" && netstat -su'
@@ -163,13 +163,12 @@ kill_port() {
     sleep 1
     if kill -0 $pid >/dev/null 2>&1; then
       echo "ERROR: Failed to kill process with ID $pid."
-      exit 1
+      return 1
     else
       echo "OK: Process with ID $pid was killed successfully."
     fi
   else
     echo "No process found running on port $port."
-    exit 1
   fi
 }
 ```
@@ -191,7 +190,6 @@ hg() {
   else
     echo "EXCEPTION: history of what?"
     echo "E.g. history vim"
-    exit 1
   fi
 }
 ```
@@ -227,22 +225,15 @@ Kết quả minh họa:
 - Chuyển file từ host machine tới remote server sử dụng giao thức [SCP](https://www.wikiwand.com/en/Secure_copy_protocol).
 
 ```bash
-# cài aliasing cho `scp`
-alias scp_='scp'
-
-# LÍ DO CẦN CÀI `aliasing` cho `scp` LÀ: bởi vì `scp` không phải là built-in
-# (thứ có sẵn như những lệnh `cd`, `pwd`, hay `ls`...) nên trước khi dùng ta phải gán aliasing cho nó.
-
 scp_do() {
   local file=$1
   local body=$2
 
   if [[ -n "$file" && -n "$body"]]; then
-    scp_ -v $file $body
+    command scp -v $file $body
   else
     echo "EXCEPTION: invalid arguments."
     echo "E.g. $ scp_do -v <file> <user>@<ip>:/destination_path"
-    exit 1
   fi
 }
 ```
@@ -256,11 +247,6 @@ $ scp_do -v <file> <user>@<ip> <destination_path>
 - Thực thi gửi HTTP request sử dụng CURL
 
 ```bash
-# cài aliasing cho `curl`
-alias curl_='curl'
-
-# lí do phải cài, mình có giải thích ở phần `scp` bên trên rồi nha.
-
 curl_do() {
   local method=$1
   local url=$2
@@ -268,22 +254,21 @@ curl_do() {
 
   case $method in
     "GET") # nếu request là GET
-      curl_ -v "http://$url" | json ;;
+      command curl -v "http://$url" | json ;;
 
     "DELETE") # nếu request là DELETE
-      curl_ -v -X $method "http://$url" | json ;;
+      command curl -v -X $method "http://$url" | json ;;
 
     "PUT") # nếu request là PUT
-      curl_ -v -X $method "http://$url" -H "Content-Type: application/json" -d $body | json ;;
+      command curl -v -X $method "http://$url" -H "Content-Type: application/json" -d $body | json ;;
 
     "POST") # nếu request là POST
-      curl_ -v -X $method "http://$url" -H "Content-Type: application/json" -d $body | json ;;
+      command curl -v -X $method "http://$url" -H "Content-Type: application/json" -d $body | json ;;
 
     *)
       echo "Exception: invalid HTTP request method: $method"
       echo "E.g. curl_do <GET | DELETE | PUT | POST> <url> <body>"
-      exit 1
-      ;;
+      return 1 ;;
   esac
 }
 ```
@@ -316,7 +301,7 @@ find_rm() {
         find $location -type $type -name "*$pattern*" -delete ;;
 
     *) # không hợp lệ
-      echo "ERROR: invalid type (only accept `f` or `d`)"
+      echo "EXCEPTION: invalid type (only accept `f` or `d`)"
       echo "E.g. find_rm <location> <f | d> <pattern>"
       return 1
     ;;
@@ -342,13 +327,14 @@ $ find_rm <location_muốn_tìm> d <pattern>
 git_init() {
   local dir=$1
 
-  if [ -z "dir" ]; then
+  if [ -n "$dir" ]; then
+    # tạo directory -> chuyển hướng sang directory -> in tên, và vị trí của directory hiện tại -> tạo git
+    mkdir $dir && cd $dir && pwd && git init
+    touch README.md .gitignore LICENSE
+  else
     echo "EXCEPTION: invalid arguments. Please provide a directory name.";
     echo "E.g. git_init test-dir"
-    exit 1
-  else
-    mkdir $dir && cd $dir pwd git init
-    touch README.md .gitignore LICENSE
+    return 1
   fi
 }
 ```
@@ -415,7 +401,7 @@ git_rm_local() {
     git rm --cached $file
   else
     echo "EXCEPTION: invalid arguments. <file> should not be null."
-    exit 1
+    return 1
   fi
 
   # nếu tham số `msg` không rỗng, viết commmit cho nó
