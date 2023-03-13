@@ -237,11 +237,11 @@ scp_do() {
   local file=$1
   local body=$2
 
-  if [[ -n "$file" && -n "$host"  &&  -n "$path" ]]; then
+  if [[ -n "$file" && -n "$body"]]; then
     scp_ -v $file $body
   else
     echo "EXCEPTION: invalid arguments."
-    echo "E.g. $ scp -v <file> <user>@<ip>:/destination_path"
+    echo "E.g. $ scp_do -v <file> <user>@<ip>:/destination_path"
     exit 1
   fi
 }
