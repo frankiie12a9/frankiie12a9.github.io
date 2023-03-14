@@ -23,7 +23,7 @@ Thành thật, dù có là người yêu thích _gõ phím_ hay sử dụng term
 
 > Mình biết sẽ có bạn bảo có thể search lại những command đã dùng bằng `Ctrl + R`. Nhưng giả sử bạn dùng một command nhưng với option khác thì gần như cũng phải sửa lại thui à. Ví dụ như lệnh CURL bên trên:
 
-> $ curl -verbose -X PUT "http://localhost:xxxx" -Header "Content-Type: application/json" --data '"{"age":"18"}"'
+> $ curl -verbose -X PUT "http://localhost:xxxx" -Header "Content-Type: application/json" --data '{"age":"18"}'
 
 Trong bài viết này, mình sẽ chia sẻ cách mình sử dụng [Aliasing](https://www.bing.com/ck/a?!&&p=270da9eb087de49fJmltdHM9MTY3ODU3OTIwMCZpZ3VpZD0yNTA3YTg3NC1hM2NiLTY3NGQtMjc0OC1iYWU0YTI0ZDY2YTgmaW5zaWQ9NTIxOA&ptn=3&hsh=3&fclid=2507a874-a3cb-674d-2748-bae4a24d66a8&psq=alias+linux+wiki&u=a1aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvQWxpYXNfJTI4Y29tbWFuZCUyOQ&ntb=1), và `Function` trong ngôn ngữ lập trình [Bash Script](<https://www.wikiwand.com/en/Bash_(Unix_shell)>) để đơn giản hóa, và tối ưu các command line thường dùng ở môi trường Linux nhé.
 
@@ -144,12 +144,64 @@ alias gb='git checkout -b'
 
 ### Làm việc với Function
 
+Như ta có thể thấy `Alias` đơn giản, ngắn gọn và có thể giải quyết được rất nhiều những lệnh cơ bản đúng không. Tuy nhiên sẽ có những lúc chúng ta cần xử lí những task phức tạp cần dùng những câu lệnh chứa một hoặc nhiều tham số khác nhau. Lúc này, `Function` sẽ giúp chúnt ta giải quyết vấn đề đó.
+
 #### #System, và Files
+
+- In ra PID (Process ID) của một port cụ thể:
+
+```bash
+pid() {
+  local port=$1
+  local process_id=$(lsof -t -i :${port})
+  echo $process_id
+}
+```
+
+Cách dùng:
+
+```
+$ pid <port>
+```
+
+Kết quả mình họa:
+
+![pid](https://user-images.githubusercontent.com/123849429/224927443-93bbf6f4-9593-4217-a890-2385ff039975.png)
+
+- In ra thông tin chi tiết của process đang chạy trên một port cụ thể dưới format: `COMMAND` `PID` `FD` `TYPE`
+
+```bash
+p_info() {
+  local port=$1
+  local pInfo=$(lsof -i :${port} | awk '{ print $1" "$2" "$3" "$4" "$5 }')
+
+  # Lưu ý: nếu muống bỏ cái format `COMMAND` `PID` `FD` `TYPE`,
+  # thì chỉ cần chèn thêm lệnh `tail -n +2` như sau:
+  # local pInfo=$(lsof -i :${port} | tail -n +2 | awk '{ print $1" "$2" "$3" "$4" "$5 }') # get three columns
+
+  if [ -n "$pInfo" ]; then
+    echo $pInfo
+  else
+	  echo "No process running on port $port"
+	  return 1
+  fi
+}
+```
+
+Cách dùng:
+
+```
+$ p_info <port>
+```
+
+Kết quả minh họa:
+
+![p_info](https://user-images.githubusercontent.com/123849429/224927496-64300243-3901-4b81-8928-ef79d105ac1a.png)
 
 - Tìm process đang được active thông qua một port cụ thể, rồi kill nó:
 
 ```bash
-kill_port() {
+kill_p() {
   local port=$1
   # tách PID (Process ID) từ process mà ta muốn kill
   local pid=$(lsof -t -i :${port})
@@ -176,7 +228,7 @@ kill_port() {
 Cách dùng:
 
 ```bash
-$ kill_port <port>
+$ kill_p <port>
 ```
 
 - In ra lịch sử sử dụng của một task cụ thể.
@@ -221,6 +273,46 @@ $ dir_tree
 Kết quả minh họa:
 
 ![dir_tree](https://user-images.githubusercontent.com/123849429/224538095-209feb9e-8802-415d-8b73-4751d66f8fc0.png)
+
+- Tải một package nào đó:
+
+```bash
+apt_i() {
+	local pkg=$1
+	if [ -n "$pkg" ]; then
+		command sudo apt update && sudo apt-get install $pkg
+	else
+		echo "EXCEPTION: provide <package> to complete instalation."
+		return 1
+	fi
+}
+```
+
+Cách dùng:
+
+```
+$ apt_i <package_name>
+```
+
+- Xóa đi một package nào đó:
+
+```bash
+apt_rm() {
+	local pkg=$1
+	if [ -n "$pkg" ]; then
+		command sudo apt remove $pkg
+	else
+		echo "EXCEPTION: invalid arguments."
+		echo "E.g. apt_rm <package_name>"
+	fi
+}
+```
+
+Cách dùng:
+
+```
+$ apt_rm <package_name>
+```
 
 - Chuyển file từ host machine tới remote server sử dụng giao thức [SCP](https://www.wikiwand.com/en/Secure_copy_protocol).
 
