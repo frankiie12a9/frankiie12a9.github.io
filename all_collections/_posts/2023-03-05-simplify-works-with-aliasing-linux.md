@@ -144,7 +144,7 @@ alias gb='git checkout -b'
 
 ### Làm việc với Function
 
-Như ta có thể thấy `Alias` đơn giản, ngắn gọn và có thể giải quyết được rất nhiều những lệnh cơ bản đúng không. Tuy nhiên sẽ có những lúc chúng ta cần xử lí những task phức tạp cần dùng những câu lệnh chứa một hoặc nhiều tham số khác nhau. Lúc này, `Function` sẽ giúp chúnt ta giải quyết vấn đề đó.
+Như ta có thể thấy `Alias` đơn giản, ngắn gọn và có thể giải quyết được rất nhiều những lệnh cơ bản đúng không. Tuy nhiên sẽ có những lúc chúng ta cần xử lí những task phức tạp cần dùng những câu lệnh chứa một hoặc nhiều tham số khác nhau. Lúc này, `Function` sẽ giúp chúng ta giải quyết vấn đề đó.
 
 #### #System, và Files
 
@@ -175,8 +175,8 @@ p_info() {
   local port=$1
   local pInfo=$(lsof -i :${port} | awk '{ print $1" "$2" "$3" "$4" "$5 }')
 
-  # Lưu ý: nếu muống bỏ cái format `COMMAND` `PID` `FD` `TYPE`,
-  # thì chỉ cần chèn thêm lệnh `tail -n +2` như sau:
+  # Lưu ý: nếu muốn bỏ cái cái tiêu đề format `COMMAND` `PID` `FD` `TYPE`,
+  # mà chỉ lấy giá trị, thì ta cần chèn thêm lệnh `tail -n +2` như sau:
   # local pInfo=$(lsof -i :${port} | tail -n +2 | awk '{ print $1" "$2" "$3" "$4" "$5 }') # get three columns
 
   if [ -n "$pInfo" ]; then
