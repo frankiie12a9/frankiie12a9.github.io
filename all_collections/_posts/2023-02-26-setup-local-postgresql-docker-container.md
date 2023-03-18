@@ -232,18 +232,32 @@ If the process goes well, you will able to access to the PGAdmin browser via the
 
 ![image](https://user-images.githubusercontent.com/123849429/222041399-44ec853e-b8f1-439a-a50f-fbfe4b9c8fab.png)
 
-And after logged in (remember to use `"PGADMIN_DEFAULT_EMAIL=<your_email>` and `"PGADMIN_DEFAULT_PASSWORD=<your_password>`) successfully, you will be redirected to the pgAdmin dashboard.
+And after logging in (remember to use `"PGADMIN_DEFAULT_EMAIL=<your_email>` and `"PGADMIN_DEFAULT_PASSWORD=<your_password>`) successfully, you will be redirected to the pgAdmin dashboard.
 
 ![image](https://user-images.githubusercontent.com/123849429/222041301-36359b5e-781c-45ae-9e6c-eb8768c2c291.png)
 
+**Connecting PostgreSQL container with pgAdmin container server**. Now, we really want to test out the Postgres Docker container we've already made in the above steps right? Let's do it, from the pgAdmin dashboard, right-click on the tab `Servers` on the top-left and continually click on the `Register`, and `Server` sections.
+
+![pg-admin-connection](https://user-images.githubusercontent.com/123849429/226106558-a87b56fb-f96b-4cb0-a9e8-71dedf2828f9.png)
+
+**Enter connection information**. After finishing the above step, there is a form will be displayed for you to provide the connection information for `Host name/address`, and `password`. Just click the `Connection` tab and provide the corresponding connection information.
+
+![pg-admin-connection-information](https://user-images.githubusercontent.com/123849429/226106950-ba9cf11c-0d5b-48cd-a111-cfdb751d3d96.png)
+
+Here ara a few notes about the required connection information:
+
+- `Host name/address`: You can enter `host.docker.internal` or `localhost`, or `172.17.0.1` for this field, all of these work. To find out why in details, you can refer to this [StackOverflow answer](https://stackoverflow.com/questions/72827527/what-is-running-on-host-docker-internal-host).
+- `Port`: This is just the container port variable you assigned for it when running the container itself which is _5432_.
+- `Username`, `Password`: These two variables of `POSTGRES_USER`, and `POSTGRES_PASSWORD` from the Postgres instance you assigned to it.
+
+If things go well, you will see the dashboard of the database like following:
+
+![pgadmin-final](https://user-images.githubusercontent.com/123849429/226107002-4ab6ea34-a0dd-4c69-b47c-f7deca6dea43.png)
+
+Now, the rest is depending on you. Have fun with it 😊.
+
 ## Conclusion
 
-That's all!! Through this article, you can see several benefits of containerization that simplifies the setting up process to boost and helps our development quickly spin up in all aspects such:
-
-- _portability_: the containers can run consistently on any infrastructure, while traditional deployment may require different configurations for different environments
-
-- _resource-efficiency_: containers only package the necessary libraries and dependencies for the code, while traditional deployment may include redundant or unused components. Containers also share the host OS kernel, while traditional deployment may require a full OS copy for each application.
-
-- _scalability_: it can be easily added and updated to meet changing demands, while traditional deployment may involve more complex processes and downtime.
+That's all!! Through this article, you can see several benefits of containerization that simplifies the setting up process to boost and helps our development quickly spin up in all aspects such _portability_, the containers can run consistently on any infrastructure, _resource-efficiency_: containers only package the necessary libraries and dependencies for the code, _scalability_: it can be easily added and updated to meet changing demands.
 
 PostgreSQL was considered a not good choice when compared to another SQL-based engines. However, it's getting better and... better to become the one of the best and most-loved one right now. It was long a bit, but I hope you found something helpful.
