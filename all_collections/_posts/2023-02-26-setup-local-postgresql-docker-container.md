@@ -246,7 +246,9 @@ And after logging in (remember to use `"PGADMIN_DEFAULT_EMAIL=<your_email>` and 
 
 Here ara a few notes about the required connection information:
 
-- `Host name/address`: You can enter `host.docker.internal` for this field to connect and access PostgreSQL database as it is a running Docker container. To briefly explain, the `host.docker.internal` is a hostname that can be used to access services running on your host machine from within a Docker container. To find out why in details on this one, you can refer to the [Stackoverflow answer](https://stackoverflow.com/questions/72827527/what-is-running-on-host-docker-internal-host).
+- `Host name/address`: This is the host name you use to access the service running on our host machine, in this case, the service is the Docker containers. As you know, in the above steps, we wired and connected both Postgres and pgAdmin containers in the same network. So now you can just enter the Postgres Docker container name you defined for it in the running container command above (`--name <your_container_name>`).
+
+> There is another option which is `host.docker.internal` for this field to connect and access Postgres container. To briefly explain, the `host.docker.internal` was introduced in Docker version 17, is a hostname that can be used to access services running on your host machine from within a Docker container. To find out why in details on this one, you can refer to the [Stackoverflow answer](https://stackoverflow.com/questions/72827527/what-is-running-on-host-docker-internal-host).
 
 - `Port`: This is just the container port variable you assigned to it when running the container itself, which is _5432_.
 
