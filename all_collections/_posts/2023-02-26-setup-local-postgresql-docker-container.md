@@ -246,7 +246,7 @@ And after logging in (remember to use `"PGADMIN_DEFAULT_EMAIL=<your_email>` and 
 
 Here ara a few notes about the required connection information:
 
-- `Host name/address`: You can enter `host.docker.internal` or `localhost`, or `172.17.0.1` for this field, all of these work. To find out why in details, you can refer to this [StackOverflow answer](https://stackoverflow.com/questions/72827527/what-is-running-on-host-docker-internal-host).
+- `Host name/address`: You can enter `host.docker.internal` for this field to connect and access PostgreSQL database as it is a running Docker container. To briefly explain, the `host.docker.internal` is a hostname that can be used to access services running on your host machine from within a Docker container. To find out why in details on this one, you can refer to the [Stackoverflow answer](https://stackoverflow.com/questions/72827527/what-is-running-on-host-docker-internal-host).
 - `Port`: This is just the container port variable you assigned for it when running the container itself which is _5432_.
 - `Username`, `Password`: These two variables of `POSTGRES_USER`, and `POSTGRES_PASSWORD` from the Postgres instance you assigned to it.
 
