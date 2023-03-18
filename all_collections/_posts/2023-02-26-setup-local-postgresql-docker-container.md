@@ -17,10 +17,10 @@ require a lot of configuration and resource. In this tutorial, we will container
 In this article, we will do:
 
 - Setting up the PostgreSQL database instance running on your local machine by using Docker.
-- Configure and run the PostgreSQL container.
-- Interact with the Postgres database from within the running container.
+- Configuring and run the PostgreSQL container.
+- Interacting with the Postgres database from within the running container.
 - Creating the Docker network to connect and wire multiple containers to work together.
-- Setting up the Postgres database management tool such PGAdmin using Docker.
+- Setting up the PostgreSQL database management tool with [pgAdmin](https://www.pgadmin.org/) using Docker.
 
 ## Getting Started
 
