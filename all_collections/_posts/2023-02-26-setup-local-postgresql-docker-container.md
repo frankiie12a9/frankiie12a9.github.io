@@ -260,6 +260,6 @@ Now, the rest is depending on you. Have fun with it 😊.
 
 ## Conclusion
 
-That's all!! Through this article, you can see several benefits of containerization that simplifies the setting up process to boost and helps our development quickly spin up in all aspects such _portability_, the containers can run consistently on any infrastructure, _resource-efficiency_: containers only package the necessary libraries and dependencies for the code, _scalability_: it can be easily added and updated to meet changing demands.
+That's all!! Through this article, you can see several benefits of containerization that simplifies the setting up process to boost and helps our development quickly spin up in all aspects such _portability_, the containers can run consistently on any infrastructure, _resource-efficiency_, containers only package the necessary libraries and dependencies for the code, and _scalability_, it can be easily added and updated to meet changing demands.
 
 PostgreSQL was considered a not good choice when compared to another SQL-based engines. However, it's getting better and... better to become the one of the best and most-loved one right now. It was long a bit, but I hope you found something helpful.
