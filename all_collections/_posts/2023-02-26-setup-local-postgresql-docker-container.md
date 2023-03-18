@@ -157,7 +157,7 @@ Just like the process we have done above, we first need to pull its image from D
 $ docker pull dpage/pgadmin4
 ```
 
-Create a separate network for Postgres and PGAdmin containers, so that they can interact with each other.
+Create a separate network for Postgres and pgAdmin containers, so that they can interact with each other.
 
 ```
 $ docker network create <network_name>
@@ -175,7 +175,7 @@ Connect the currently running Postgres container with the network.
 $ docker network connect <network_name> <your_postgres_container>
 ```
 
-Ok, now we need to run the PGAdmin container.
+Ok, now we need to run the pgAdmin container.
 
 ```bash
 docker run --name local-pgadmin \
@@ -200,7 +200,7 @@ After connecting and wiring two containers into the same network, we must verify
 $ docker network inspect <network_name>
 ```
 
-You should see there is a `Containers` property with two container values, one is the Postgres and the other one is the PGAdmin container inside it like following.
+You should see there is a `Containers` property with two container values, one is the Postgres and the other one is the pgAdmin container inside it like following.
 
 ```
 {
@@ -228,7 +228,7 @@ You should see there is a `Containers` property with two container values, one i
 
 > You might feel this setup is a bit complicated... then you are right! There is another setup choice that much simpler than this one, which is [Docker Compose](https://www.bing.com/search?q=docker+compose&cvid=15d3df101a1f4f06a2619fc0db2eebd8&aqs=edge..69i57j69i59j69i64.1303j0j1&FORM=ANAB01&PC=EE09). However, by doing this way, you have a chance to work with the lower layers such Docker networking, how to connect and make multiple containers interact with each other in a same network, etc.
 
-If the process goes well, you will able to access to the PGAdmin browser via the **localhost:5050** and see the login page like following.
+If the process goes well, you will able to access to the pgAdmin browser via the **localhost:5050** and see the login page like following.
 
 ![image](https://user-images.githubusercontent.com/123849429/222041399-44ec853e-b8f1-439a-a50f-fbfe4b9c8fab.png)
 
@@ -247,7 +247,9 @@ And after logging in (remember to use `"PGADMIN_DEFAULT_EMAIL=<your_email>` and 
 Here ara a few notes about the required connection information:
 
 - `Host name/address`: You can enter `host.docker.internal` for this field to connect and access PostgreSQL database as it is a running Docker container. To briefly explain, the `host.docker.internal` is a hostname that can be used to access services running on your host machine from within a Docker container. To find out why in details on this one, you can refer to the [Stackoverflow answer](https://stackoverflow.com/questions/72827527/what-is-running-on-host-docker-internal-host).
+
 - `Port`: This is just the container port variable you assigned for it when running the container itself which is _5432_.
+
 - `Username`, `Password`: These two variables of `POSTGRES_USER`, and `POSTGRES_PASSWORD` from the Postgres instance you assigned to it.
 
 If things go well, you will see the dashboard of the database like following:
