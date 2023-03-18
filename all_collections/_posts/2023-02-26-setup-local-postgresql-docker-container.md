@@ -149,7 +149,7 @@ Here are some commonly used commands to interact with your postgres database.
 
 ### Working with Postgres UI management tool
 
-Let's say you are a UI person, and you want to interact with the database via UI application such [PGAdmin](https://www.pgadmin.org/)?... Oke let's setup the PGAdmin to use it locally.
+Assuming you are a UI person, and you want to interact with the database via UI application such [pgAdmin](https://www.pgadmin.org/)...? Oke let's setup the pgAdmin to use it with PostgreSQL database locally.
 
 Just like the process we have done above, we first need to pull its image from DockerHub. Here I'm going to to use the **dpage/pgadmin14**.
 
