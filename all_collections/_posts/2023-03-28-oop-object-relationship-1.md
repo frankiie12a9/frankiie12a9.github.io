@@ -128,7 +128,7 @@ Chúng ta có thể minh hoạ Object Aggregation thông qua ví dụ như, `chi
 
 - Đối tượng (bị sở hữu) là một phần của đối tượng (sở hữu) trong một khoảng thời gian nhất định
 - Sự hiện diện, tồn tại của đối tượng (bị sở hữu) không trực tiếp chịu sự quản lí hay bị ảnh hưởng bởi đối tượng (sở hữu), và ngược lại
-- Đối tượng (bị sở hữu) does not know about the existence of the object (class)
+- Đối tượng (bị sở hữu) không biết gì về sự tồn tại của đối tượng (sở hữu)
 
 #### Code Ví dụ
 
@@ -183,8 +183,9 @@ public:
       const std::string &name,
       const CPU &cpu,
       const Storage &storage,
-      const Display &display )
-        : m_name { name }, m_cpu{ cpu }, m_storage{ storage }, m_display{ display }
+      const Display &display
+    )
+      : m_name{ name }, m_cpu{ cpu }, m_storage{ storage }, m_display{ display }
     {}
 
     // Kết nối với một chuột
@@ -263,8 +264,6 @@ class User
 
   public:
     User(int id, std::string name) : m_id{ id }, m_name{ name } {}
-
-    // getters and setters
 };
 
 #endif
@@ -299,8 +298,9 @@ public:
       const std::string &name,
       const CPU &CPU,
       const Storage &storage,
-      const Display &display )
-        : m_name {name}, m_cpu {CPU}, m_storage {storage}, m_display {display}
+      const Display &display
+    )
+      : m_name{ name }, m_cpu{ CPU }, m_storage{ storage }, m_display{ display }
     {}
 
     // Kết nối với một chuột
@@ -329,7 +329,9 @@ public:
         out << "Keyboard " << (i + 1) << " (" << "name: " << computer.m_keyboards.at(i).name
           << ", brand: " << computer.m_keyboards.at(i).brand << ")" << std::endl;
       }
-      out << "Used by (" << "id: "<< computer.m_user->m_id << ", name: " << computer.m_user->m_name << ")" << std::endl;
+      if (computer.m_user != nullptr) {
+        out << "Used by (" << "id: "<< computer.m_user->m_id << ", name: " << computer.m_user->m_name << ")" << std::endl;
+      }
       return out;
     }
 };
