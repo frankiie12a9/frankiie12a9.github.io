@@ -1,13 +1,13 @@
 ---
 layout: post
-title: OOP 101 - Object Relationships
+title: OOP 101 - Object Relationships (phần 1)
 date: 2023-03-28
 categories: ["dev", "oop", "cplusplus", "vi"]
 ---
 
 Lập trình hướng đối tượng được xây dựng trên ý tưởng về các đối tượng và mối quan hệ của chúng với nhau. Những mối quan hệ này rất cần thiết trong việc tạo ra các chương trình có tính mô-đun, có thể bảo trì và hiệu quả. Việc hiểu các loại quan hệ khác nhau giữa các đối tượng là rất quan trọng để thiết kế các hệ thống phần mềm hiệu quả.
 
-Mối quan hệ đối tượng (Object Relationship) đề cập đến cách các đối tượng được liên kết và tương tác với nhau trong một hệ thống. Trong lập trình hướng đối tượng, chúng ta có thể liệt kê ra một số loại quan hệ đối tượng thường được dùng như, `kế thừa (Object Inheritance)`, `thành phần (Ọbject Composition)`, `liên kết (Object Association)`, `tập hợp (Object Aggregation)`, `phụ thuộc (Object Dependency)` và `thùng chứa (Container Class)`. Mỗi một loại quan hệ trên được dùng để minh họa một cách khác nhau trong đó các đối tượng có thể tương tác và mỗi mối quan hệ có các đặc điểm và trường hợp sử dụng riêng.
+Mối quan hệ đối tượng (Object Relationship) đề cập đến cách các đối tượng được liên kết và tương tác với nhau trong một hệ thống. Trong lập trình hướng đối tượng, chúng ta có thể liệt kê ra một số loại quan hệ đối tượng thường được dùng như, `kế thừa (Object Inheritance)`, `thành phần (Ọbject Composition)`, `liên kết (Object Association)`, `tập hợp (Object Aggregation)`, `phụ thuộc (Object Dependency)` và `thùng chứa (Container Class)`. Mỗi một loại quan hệ trên được dùng để minh họa, hay biểu diễn cách mà các đối tượng liên kết, và tương tác với nhau.
 
 Trong bài viết này, chúng ta sẽ cùng tìm hiểu và so sánh các loại quan hệ đối tượng là `Composition`, `Aggregation`, và `Association`.
 
@@ -559,4 +559,4 @@ Mặt khác, việc sử dụng liên kết gián tiếp giúp code giữa các 
 | Quan hệ đồng thời  | Không            | Có               | Có                 |
 | Vòng đời ràng buộc | Có               | Không            | Không              |
 | Hướng quan hệ      | Đơn hướng        | Đơn hướng        | Đơn hướng/Đa hướng |
-| Động từ quan hệ    | Part-of/is-a     | Has-a            | Uses-a             |
+| Động từ quan hệ    | Has-a            | Has-a            | Uses-a             |
