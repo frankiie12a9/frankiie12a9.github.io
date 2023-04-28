@@ -154,13 +154,13 @@ class Computer
     OperatingSystem *m_os;
 
   public:
-    // Inject dependencies of `m_hw`, and `m_os` via constructor
-    // A.k.a: Constructor Injection
+    // Inject dependencies of `m_hw`, and `m_os` via constructor,
+    // we call it Constructor Injection
     Computer(hardware *hw, OperatingSystem *os) : m_hw {hw}, m_os {os} {}
 
     void run() {
-      m_hw->run(); // Invoke run() via Dependency of m_hw
-      m_os->run(); // Invoke run() via Dependency of m_os
+      m_hw->run(); // Invoke run() via dependency of m_hw
+      m_os->run(); // Invoke run() via dependency of m_os
 
       // Run the Computer
     }
