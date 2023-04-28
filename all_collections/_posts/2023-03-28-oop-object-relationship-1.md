@@ -563,3 +563,9 @@ Mặt khác, việc sử dụng liên kết gián tiếp giúp code giữa các 
 | Vòng đời ràng buộc | Có               | Không            | Không              |
 | Hướng quan hệ      | Đơn hướng        | Đơn hướng        | Đơn hướng/Đa hướng |
 | Động từ quan hệ    | Has-a            | Has-a            | Uses-a             |
+
+### Đọc thêm
+
+[OOP 101: Object Relationships (phần 2)](https://frankiie12a9.github.io/posts/oop-object-relationship-2/#!)
+
+**_Mình viết blog để tổng hợp lại những gì mình đã học, và cũng như học cách trình bày sao cho người khác có thể hiểu được, nên bài viết có thể tồn tại bug hoặc chưa hoàn thiện đâu đó. Nếu có gì liên quan đến bài viết, cần giúp debug, etc. thì đừng ngần ngại mà hãy cứ nhắn tin cho mình qua [Facebook](https://www.facebook.com/frankiie12a9/) nha._**
