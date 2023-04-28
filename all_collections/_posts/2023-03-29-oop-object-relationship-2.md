@@ -9,8 +9,6 @@ categories: ["dev", "oop", "cplusplus", "vi"]
 
 ### Object Inheritance
 
-Inheritance is an "is-a" relationship where one class (the subclass) inherits the properties and behaviors of another class (the superclass). The subclass can add its own properties and behaviors as well. For example, a car class might inherit from a vehicle class, and add its own properties like "number of doors" and "color".
-
 Inheritance là một kiểu quan hệ "is-a", nơi mà một, hoặc nhiều đối tượng kế thừa `thuộc tính`, `methods` từ một hoặc nhiều đối tượng khác. Đối với những đối tượng kế thừa, ta gọi là lớp cha (super class, hay base class), còn đối với những đối tượng được kế thừa, ta gọi là lớp con (subclass hay derived class).
 
 #### Code ví dụ
