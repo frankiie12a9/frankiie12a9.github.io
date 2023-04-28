@@ -13,7 +13,7 @@ Inheritance là một kiểu quan hệ "is-a", nơi mà một, hoặc nhiều đ
 
 #### Code ví dụ
 
-Ở ví dụ sau đây, chúng ta sẽ dùng chiếc máy tính (Computer), máy tính xách tay (Laptop), và máy tính bàn (Desktop). Máy tính xách tay, hay máy tính bàn nhìn chung đều được coi là một máy tính. Chúng cũng có cho mình những bộ phận chung của một chiếc máy tính như CPU, ổ lưu trữ, Display, hay hệ điều hành... Từ đó, ta có thể thấy máy tính xách tay, và máy tính bàn đều có thể kế thừa những thuộc tính nêu trên từ một đối tượng máy tính.
+Ở ví dụ sau đây, chúng ta sẽ dùng chiếc `máy tính (Computer)`, `máy tính xách tay (Laptop)`, và `máy tính bàn (Desktop)`. Máy tính xách tay, hay máy tính bàn nhìn chung đều được coi là một máy tính. Chúng cũng có cho mình những bộ phận chung của một chiếc máy tính như CPU, ổ lưu trữ, Display, hay hệ điều hành... Từ đó, ta có thể thấy máy tính xách tay, và máy tính bàn đều có thể kế thừa những thuộc tính nêu trên từ một đối tượng máy tính.
 
 ```c++
 #include <iostream>
@@ -84,7 +84,7 @@ public:
 
 int main()
 {
-  Laptop laptop{
+  Laptop lt{
      "Dell DX-3",
       {8, 4},           // CPU
       {16, "SSD"},      // Storage
@@ -99,7 +99,7 @@ int main()
   };
 
   // Either Laptop or Desktop typically is a Computer, and vice versa
-  Computer *c1 = &laptop;
+  Computer *c1 = &lt;
   Computer *c2 = &dt;
 
   std::cout << *c1 << std::endl;
