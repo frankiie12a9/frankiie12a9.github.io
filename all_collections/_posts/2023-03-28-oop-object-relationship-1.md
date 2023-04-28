@@ -1,6 +1,6 @@
 ---
 layout: post
-title: OOP 101 - Object Relationships
+title: OOP 101 Object Relationships
 date: 2023-03-28
 categories: ["dev", "oop", "c++", "vi"]
 ---
@@ -175,7 +175,8 @@ private:
     Storage m_storage;
     Display m_display;
 
-    // Aggregation - Computer has a reference to a Mouse, and Keyboards but doesn't own them
+    // Aggregation - Computer has a reference to a Mouse,
+    // and Keyboards but doesn't own them
     Mouse m_mouse;
     std::vector<Keyboard> m_keyboards;
 
@@ -231,12 +232,12 @@ int main() {
 
 Association là một kiểu quan hệ "uses-a", kiểu quan hệ này ám chỉ một đối tượng liên kết hay được liên kết với một đối tượng khác. Đối tượng liên kết và được liên kết tồn tại độc lập, riêng biệt lẫn nhau. Ta có thể thấy được kiểu quan hệ này được minh họa thông qua một vài ví dụ như, `một người dùng` sử dụng một `cái máy tính công cộng`, hay `một sinh viên` sử dụng một `quyển sách` trong thư viện\_... Sự tồn tại của máy tính/quyển sách độc lập với sự tồn tại của người dùng/sinh viên, và người dùng/sinh viên không trực tiếp sở hữu và quản lí vòng đời của máy tính/quyển sách.
 
-Không giống như Composition hay Aggregation, nơi mà đối tượng sở hữu được tạo thành bởi sự kết hợp giữa chính nó và một hay nhiều đối tượng bị sở hữu. Đối với Association, các đối tượng liên kết/được liên kết với nhau nhưng lại không có liên quan đến nhau, chúng tồn tại độc lập, và riêng biệt lẫn nhau. Một đối tượng có thể liên kết với đối tượng này, và cũng đồng thời liên kết với một hoặc nhiều đối tượng khác. Thêm nữa, sự liên kết giữa các đối tượng có thể là `trực tiếp (directional)`, hoặc `gián tiếp (indirectional)`, và `một chiều (unidirectional)`, hoặc `hai chiều (bidirectional)`.
+Không giống như Composition hay Aggregation, nơi mà đối tượng sở hữu được tạo thành bởi sự kết hợp giữa chính nó và một hay nhiều đối tượng bị sở hữu. Đối với Association, các đối tượng liên kết/được liên kết với nhau nhưng lại không có liên quan đến nhau, chúng tồn tại độc lập, và riêng biệt lẫn nhau. Một đối tượng có thể liên kết với đối tượng này, và cũng đồng thời liên kết với một hoặc nhiều đối tượng khác. Thêm nữa, sự liên kết giữa các đối tượng có thể là `trực tiếp (directional)`, hoặc `gián tiếp (indirectional)`, và `đơn hướng (unidirectional)`, hoặc `đa hướng (bidirectional)`.
 
 - `Liên kết trực tiếp (Directional association)` - hai đối tượng liên kết trực tiếp với nhau
 - `Liên kết gián tiếp (Indirectional association)` - hai đối tượng liên kết với nhau thông qua một đối tượng khác trung gian
-- `Liên kết một chiều (Unidirectional association)` - một liên kết mà trong đó chỉ có một đối tượng biết về mối quan hệ
-- `Liên kết hai chiều (Bidirectional association)` - một liên kết mà cả hai đối tượng tham gia đều biết về mối quan hệ
+- `Liên kết đơn hướng (Unidirectional association)` - một liên kết mà trong đó chỉ có một đối tượng biết về mối quan hệ
+- `Liên kết đa hướng (Bidirectional association)` - một liên kết mà cả hai đối tượng tham gia đều biết về mối quan hệ
 
 Đối tượng để có thể được coi là một association, chúng phải có đủ những yếu tố sau đây:
 
@@ -306,17 +307,17 @@ public:
 
     // Kết nối với một chuột
     void setMouse(Mouse mouse) {
-      this->m_mouse = mouse;
+        m_mouse = mouse;
     }
 
     // Kết nối với một hoặc nhiều bàn phím
     void addKeyboard(const Keyboard &keyboard) {
-      this->m_keyboards.push_back(keyboard);
+        m_keyboards.push_back(keyboard);
     }
 
     // Chỉ định liên kết Computer với User
     void setUsedBy(User *user) {
-      this->m_user = user;
+        m_user = user;
     }
 
     friend std::ostream& operator<<(std::ostream& out, const Computer& computer)
@@ -395,18 +396,19 @@ private:
     std::string m_name;
     User *m_user;
 
-    RemoteComputer *m_remoteComp; // Indirect asociation - currently Computer's User can access Remote Computer
+    // Indirect asociation - currently Computer's User can access Remote Computer
+    RemoteComputer *m_remoteComp;
 
 public:
     Computer(const std::string &name) : m_name{ name } {}
 
     void setUsedBy(User *user) {
-      this->m_user = user;
+      m_user = user;
     }
 
     // Kết nối tới Remote Computer
     void accessRemoteComputer(RemoteComputer *remoteComp) {
-      this->m_remoteComp = remoteComp;
+      m_remoteComp = remoteComp;
     }
 
     friend std::ostream& operator<<(std::ostream& out, const Computer& computer)
@@ -441,7 +443,7 @@ int main() {
 
 #### Unidirectional association
 
-Dưới đây là ví dụ minh họa cho Liên kết một chiều. Đối tượng User chứa 0 hoặc nhiều Computer, Còn Computer thì không chứa bất kì một User nào cả. Điều này có nghĩa, từ User, chúng ta có thể gọi và sử dụng những thuộc tính (attributes) của Computer, tuy nhiên từ Computer, chúng ta không thể gọi và sử dụng bất kì thuộc tính nào của User.
+Dưới đây là ví dụ minh họa cho Liên kết đơn hướng. Đối tượng User chứa 0 hoặc nhiều Computer, Còn Computer thì không chứa bất kì một User nào cả. Điều này có nghĩa, từ User, chúng ta có thể gọi và sử dụng những thuộc tính (attributes) của Computer, tuy nhiên từ Computer, chúng ta không thể gọi và sử dụng bất kì thuộc tính nào của User.
 
 ```c++
 #include <iostream>
@@ -488,7 +490,7 @@ int main()  {
 
 #### Bidirectional association
 
-Dưới đây là ví dụ minh họa cho Liên kết hai chiều. Đối tượng User chứa 0 hoặc nhiều Computer, Còn mỗi Computer thì sẽ chứa một User. Điều này có nghĩa, từ User, chúng ta có thể gọi và sử dụng những thuộc tính (attributes) của Computer, và từ Computer, chúng ta cũng có thể gọi hoặc sử dụng bất kì thuộc tính nào của User mà nó đang được liên kết.
+Dưới đây là ví dụ minh họa cho Liên kết đa hướng. Đối tượng User chứa 0 hoặc nhiều Computer, Còn mỗi Computer thì sẽ chứa một User. Điều này có nghĩa, từ User, chúng ta có thể gọi và sử dụng những thuộc tính (attributes) của Computer, và từ Computer, chúng ta cũng có thể gọi hoặc sử dụng bất kì thuộc tính nào của User mà nó đang được liên kết.
 
 ```c++
 #include <iostream>
@@ -507,7 +509,9 @@ public:
     Computer(std::string name) : m_name{ name }, m_user{ nullptr } {}
     void setUsedBy(User* user) {
         m_user = user;
-        user->useComputer(this); // Khi Computer được sử dụng bởi một User, thì cũng có nghĩa `useComputer()` bên trong User cũng được gọi
+        // Khi Computer được sử dụng bởi một User,
+        // thì cũng có nghĩa `useComputer()` bên trong User cũng được gọi
+        user->useComputer(this);
     }
 };
 
