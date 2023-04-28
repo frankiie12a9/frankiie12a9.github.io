@@ -1,6 +1,6 @@
 ---
 layout: post
-title:
+title: OOP 101 - Object Relationships
 date: 2023-03-28
 categories: ["dev", "oop", "c++", "vi"]
 ---
