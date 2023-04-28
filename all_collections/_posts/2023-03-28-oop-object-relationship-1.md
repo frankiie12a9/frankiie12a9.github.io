@@ -7,7 +7,11 @@ categories: ["dev", "oop", "c++", "vi"]
 
 ## Object-Oriented Programming 101: Object Relationships - phần 1
 
-<!-- todo -->
+Lập trình hướng đối tượng được xây dựng trên ý tưởng về các đối tượng và mối quan hệ của chúng với nhau. Những mối quan hệ này rất cần thiết trong việc tạo ra các chương trình có tính mô-đun, có thể bảo trì và hiệu quả. Việc hiểu các loại quan hệ khác nhau giữa các đối tượng là rất quan trọng để thiết kế các hệ thống phần mềm hiệu quả.
+
+Mối quan hệ đối tượng (Object Relationship) đề cập đến cách các đối tượng được liên kết và tương tác với nhau trong một hệ thống. Trong lập trình hướng đối tượng, chúng ta có thể liệt kê ra một số loại quan hệ đối tượng thường được dùng như, `kế thừa (Object Inheritance)`, `thành phần (Ọbject Composition)`, `liên kết (Object Association)`, `tập hợp (Object Aggregation)`, `phụ thuộc (Object Dependency)` và `thùng chứa (Container Class)`. Mỗi một loại quan hệ trên được dùng để minh họa một cách khác nhau trong đó các đối tượng có thể tương tác và mỗi mối quan hệ có các đặc điểm và trường hợp sử dụng riêng.
+
+Trong bài viết này, chúng ta sẽ cùng tìm hiểu và so sánh các loại quan hệ đối tượng là `Composition`, `Aggregation`, và `Association`.
 
 ### 1. Object Composition
 
@@ -176,22 +180,22 @@ private:
     std::vector<Keyboard> m_keyboards;
 
 public:
-    public Computer(
+    Computer(
       const std::string &name,
       const CPU &cpu,
       const Storage &storage,
       const Display &display )
-        : m_name {name}, m_cpu {cpu}, m_storage {storage}, m_display {display}
+        : m_name { name }, m_cpu{ cpu }, m_storage{ storage }, m_display{ display }
     {}
 
     // Kết nối với một chuột
     void setMouse(Mouse mouse) {
-      this->m_mouse = mouse;
+      m_mouse = mouse;
     }
 
     // Kết nối với một hoặc nhiều bàn phím
     void addKeyboard(const Keyboard &keyboard) {
-      this->m_keyboards.push_back(keyboard);
+      m_keyboards.push_back(keyboard);
     }
 };
 
@@ -276,7 +280,6 @@ class User
 #include <iostream>
 #include <vector>
 #include <string>
-
 #include "User.h"
 
 class Computer
@@ -286,8 +289,6 @@ private:
     CPU m_cpu;
     Storage m_storage;
     Display m_display;
-
-    // Aggregation - Computer has a reference to a Mouse, and Keyboards but doesn't own them
     Mouse m_mouse;
     std::vector<Keyboard> m_keyboards;
 
