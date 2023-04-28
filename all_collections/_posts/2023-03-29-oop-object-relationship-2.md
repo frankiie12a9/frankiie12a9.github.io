@@ -181,6 +181,10 @@ int main()
 
 ### Kết
 
-Kiểu đối tượng quan hệ (Object Relationship) được dùng rất nhiều trong những ngôn ngữ lập trình hướng đối tượng như C++, Java, hay C# nói riêng và lập trình hướng đối tượng nói chung. Việc nắm được những kiến thức cơ bản này sẽ giúp chúng ta rất nhiều trong việc học những [nguyên lí](), hay [design pattern]() phức tạp hơn của lập trình hướng đối tượng.
+Kiểu đối tượng quan hệ (Object Relationship) được dùng rất nhiều trong những ngôn ngữ lập trình hướng đối tượng như C++, Java, hay C# nói riêng và lập trình hướng đối tượng nói chung. Việc nắm được những kiến thức cơ bản này sẽ giúp chúng ta rất nhiều trong việc học những [nguyên lí](https://www.freecodecamp.org/news/solid-principles-explained-in-plain-english/), hay [design pattern](https://www.bing.com/ck/a?!&&p=cf932fb5745e49eeJmltdHM9MTY4MjY0MDAwMCZpZ3VpZD0yNTA3YTg3NC1hM2NiLTY3NGQtMjc0OC1iYWU0YTI0ZDY2YTgmaW5zaWQ9NTIyMg&ptn=3&hsh=3&fclid=2507a874-a3cb-674d-2748-bae4a24d66a8&psq=OOP+design+patterns&u=a1aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvRGVzaWduX1BhdHRlcm5z&ntb=1) phức tạp hơn của lập trình hướng đối tượng.
+
+### Đọc thêm
+
+[OOP 101: Object Relationships (phần 1)](https://frankiie12a9.github.io/posts/oop-object-relationship-1/#!)
 
 **_Mình viết blog để tổng hợp lại những gì mình đã học, và cũng như học cách trình bày sao cho người khác có thể hiểu được, nên bài viết có thể tồn tại bug hoặc chưa hoàn thiện đâu đó. Nếu có gì liên quan đến bài viết, cần giúp debug, etc. thì đừng ngần ngại mà hãy cứ nhắn tin cho mình qua [Facebook](https://www.facebook.com/frankiie12a9/) nha._**
