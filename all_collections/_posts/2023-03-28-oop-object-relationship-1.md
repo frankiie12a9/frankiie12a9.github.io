@@ -88,6 +88,7 @@ public:
       : m_name{ name }, m_cpu{ CPU }, m_storage{ storage }, m_display{ display }
     {}
 
+  // Overloaded output operator
   friend std::ostream& operator<<(std::ostream& out, const Computer& computer) {
     out << computer.m_name << std::endl;
     out << "CPU (" << "clock_speed: " << computer.m_cpu.clock_speed << ", core_cout: " << computer.m_cpu.core_count << ")" <<  std::endl;
@@ -396,7 +397,7 @@ private:
     std::string m_name;
     User *m_user;
 
-    // Indirect asociation - currently Computer's User can access Remote Computer
+    // Indirect asociation - current Computer's User can access the Remote Computer
     RemoteComputer *m_remoteComp;
 
 public:
