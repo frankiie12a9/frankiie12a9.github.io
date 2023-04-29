@@ -19,6 +19,7 @@ Inheritance là một kiểu quan hệ "is-a", nơi mà một, hoặc nhiều đ
 #include <iostream>
 #include <string>
 
+// Computer is the base class
 class Computer
 {
 protected:
@@ -33,9 +34,7 @@ public:
     const CPU &cpu,
     const Storage &storage,
     const Display &display
-  )
-    : m_name{ name }, m_cpu{ cpu }, m_storage{ storage }, m_display{ display }
-  {}
+  ) : m_name{ name }, m_cpu{ cpu }, m_storage{ storage }, m_display{ display } {}
 
   void open() {
     // Open the laptop
@@ -60,6 +59,7 @@ public:
   }
 };
 
+// Laptop inherits from Computer. Thus, it's derived class
 class Laptop : public Computer
 {
 public:
@@ -68,9 +68,12 @@ public:
     const CPU &cpu,
     const Storage &storage,
     const Display &display
-  ) : Computer{name, cpu, storage, display} {}
+  )
+  // inherits attributes of Computer
+  : Computer{name, cpu, storage, display} {}
 };
 
+// Desktop inherits from Computer. Thus, it's derived class
 class Desktop : public Computer
 {
 public:
@@ -79,7 +82,9 @@ public:
     const CPU &cpu,
     const Storage &storage,
     const Display &display
-  ) : Computer{name, cpu, storage, display} {}
+  )
+  // inherits attributes of Computer
+  : Computer{name, cpu, storage, display} {}
 };
 
 int main()
@@ -88,7 +93,7 @@ int main()
      "Dell DX-3",
       {8, 4},           // CPU
       {16, "SSD"},      // Storage
-      {1220 * 839, 30} // Display
+      {1220 * 839, 30}  // Display
   };
 
   Desktop dt{
