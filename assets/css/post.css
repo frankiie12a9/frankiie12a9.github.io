@@ -89,7 +89,7 @@ main {
 /* markdown content */
 
 .content * {
-  line-height: 180%;
+  line-height: 170%;
 }
 .content p {
   margin: 0 0 1.75rem 0;
