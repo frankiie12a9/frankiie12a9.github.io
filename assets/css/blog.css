@@ -11,7 +11,8 @@
   --white-2: #a9abb3;
 }
 * {
-  font-family: inherit;
+  /* font-family: inherit; */
+  font-family: kalinga, "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-decoration: none;
   margin: 0;
   padding: 0;
