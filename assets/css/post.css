@@ -92,6 +92,7 @@ main {
   line-height: 170%;
 }
 .content p {
+  text-align: justify;
   margin: 0 0 1.75rem 0;
   padding: 0;
 }
