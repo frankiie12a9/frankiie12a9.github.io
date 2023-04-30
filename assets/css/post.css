@@ -93,6 +93,7 @@ main {
 }
 .content p {
   text-align: justify;
+  word-spacing: -1px;
   margin: 0 0 1.75rem 0;
   padding: 0;
 }
