@@ -120,11 +120,10 @@ int main()
   <summary>LƯU Ý THÊM</summary>
   <strong>strongly important</strong> and this text is <em>emphasized</em>
 </details> -->
-</br>
 
-> **Ở ví dụ trên, liệu bạn có tựu hỏi rằng, trong hai class `Laptop`, và `Desktop`, tại sao chúng ta lại cần kế thừa thuộc tính từ Computer thông qua dòng `: Computer{name, cpu, storage, display} {}`? Sẽ ra sao nếu chúng ta lược bỏ nó?**
+> **Ở ví dụ dược trình bày trên, liệu bạn có tự hỏi rằng, trong hai lớp `Laptop`, và `Desktop`, tại sao chúng ta lại khai báo kế thừa thuộc tính thành viên từ lớp Computer thông qua hàm tạo tham số `: Computer{ name, cpu, storage, display } {}`? Nó có vai trò gì? Sẽ ra sao nếu chúng ta lược bỏ nó?**
 
-Ở lớp Computer trên, chúng ta thấy nó có một hàm tạo tham số (parameterized constructor), nơi mà những thuộc tính của một Computer được khai báo và gán giá trị với những tham số tương ứng.
+Ở lớp Computer, chúng ta thấy nó có một hàm tạo tham số (parameterized constructor), nơi mà những thuộc tính của một Computer được khai báo và gán giá trị với những tham số tương ứng.
 
 ```c++
 Computer(
@@ -135,7 +134,7 @@ Computer(
 ) : m_name{ name }, m_cpu{ cpu }, m_storage{ storage }, m_display{ display } {}
 ```
 
-Và ở trong hai lớp kế thừa từ Computer là Laptop, và Desktop, chúng cũng có hai tham số constructor.
+Và ở trong hai lớp kế thừa từ Computer là Laptop, và Desktop, chúng cũng có hai hàm tạo tham số như:
 
 ```c++
 class Laptop : public Computer
