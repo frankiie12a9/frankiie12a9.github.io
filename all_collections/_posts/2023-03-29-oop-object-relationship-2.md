@@ -9,7 +9,7 @@ categories: ["dev", "oop", "cplusplus", "vi"]
 
 ### Object Inheritance
 
-Inheritance là một kiểu quan hệ "is-a", nơi mà một, hoặc nhiều đối tượng kế thừa `thuộc tính`, `methods` từ một hoặc nhiều đối tượng khác. Đối với những đối tượng kế thừa, ta gọi là lớp cha (super class, hay base class), còn đối với những đối tượng được kế thừa, ta gọi là lớp con (subclass hay derived class).
+Inheritance là một kiểu quan hệ "is-a", nơi mà một, hoặc nhiều đối tượng kế thừa `thuộc tính`, `methods` từ một hoặc nhiều đối tượng khác. Đối với những đối tượng kế thừa, ta gọi là lớp cha/lớp cơ sở (super class, hay base class), còn đối với những đối tượng được kế thừa, ta gọi là lớp con/lớp dẫn xuất (subclass hay derived class).
 
 #### Code ví dụ
 
@@ -19,7 +19,7 @@ Inheritance là một kiểu quan hệ "is-a", nơi mà một, hoặc nhiều đ
 #include <iostream>
 #include <string>
 
-// Computer is the base class
+// Computer là lớp cha
 class Computer
 {
 protected:
@@ -29,6 +29,7 @@ protected:
   Display m_display;
 
 public:
+  Computer() = default;
   Computer(
     const std::string &name,
     const CPU &cpu,
@@ -37,15 +38,15 @@ public:
   ) : m_name{ name }, m_cpu{ cpu }, m_storage{ storage }, m_display{ display } {}
 
   void open() {
-    // Open the laptop
+    std::cout << "Open the laptop" << std::endl;
   }
 
   void close() {
-    // Close the laptop
+    std::cout << "Close the laptop" << std::endl;
   }
 
   void reboot() {
-    // Reboot the laptop
+    std::cout << "Reboot the laptop" << std::endl;
   }
 
   // Overloaded output method
@@ -59,7 +60,7 @@ public:
   }
 };
 
-// Laptop inherits from Computer. Thus, it's derived class
+// Laptop kế thừa từ Computer, nên Laptop là lớp con
 class Laptop : public Computer
 {
 public:
@@ -69,11 +70,11 @@ public:
     const Storage &storage,
     const Display &display
   )
-  // inherits attributes of Computer
+  // kế thừa thuộc tính từ Computer
   : Computer{name, cpu, storage, display} {}
 };
 
-// Desktop inherits from Computer. Thus, it's derived class
+// Desktop kế thừa từ Computer, nên Desktop là lớp con
 class Desktop : public Computer
 {
 public:
@@ -83,7 +84,7 @@ public:
     const Storage &storage,
     const Display &display
   )
-  // inherits attributes of Computer
+  // kế thừa thuộc tính từ Computer
   : Computer{name, cpu, storage, display} {}
 };
 
@@ -103,7 +104,8 @@ int main()
       {1920 * 1080, 50} // Display
   };
 
-  // Either Laptop or Desktop typically is a Computer, and vice versa
+  // Sau khi được kế thừa từ Computer.
+  // Lúc này, đối tượng Computer chính là Laptop, và cũng chính là Desktop
   Computer *c1 = &lt;
   Computer *c2 = &dt;
 
@@ -113,6 +115,117 @@ int main()
   return 0;
 }
 ```
+
+<!-- <details>
+  <summary>LƯU Ý THÊM</summary>
+  <strong>strongly important</strong> and this text is <em>emphasized</em>
+</details> -->
+</br>
+
+> **Ở ví dụ trên, liệu bạn có tựu hỏi rằng, trong hai class `Laptop`, và `Desktop`, tại sao chúng ta lại cần kế thừa thuộc tính từ Computer thông qua dòng `: Computer{name, cpu, storage, display} {}`? Sẽ ra sao nếu chúng ta lược bỏ nó?**
+
+Ở lớp Computer trên, chúng ta thấy nó có một hàm tạo tham số (parameterized constructor), nơi mà những thuộc tính của một Computer được khai báo và gán giá trị với những tham số tương ứng.
+
+```c++
+Computer(
+    const std::string &name,
+    const CPU &cpu,
+    const Storage &storage,
+    const Display &display
+) : m_name{ name }, m_cpu{ cpu }, m_storage{ storage }, m_display{ display } {}
+```
+
+Và ở trong hai lớp kế thừa từ Computer là Laptop, và Desktop, chúng cũng có hai tham số constructor.
+
+```c++
+class Laptop : public Computer
+{
+public:
+  // Hàm tạo tham số
+  Laptop(
+    const std::string name,
+    const CPU &cpu,
+    const Storage &storage,
+    const Display &display
+  )
+  // : Computer{ name, cpu, storage, display }
+  {} // ERROR!
+};
+
+class Desktop : public Computer
+{
+public:
+  // Hàm tạo tham số
+  Desktop(
+    const std::string name,
+    const CPU &cpu,
+    const Storage &storage,
+    const Display &display
+  )
+  // : Computer{ name, cpu, storage, display }
+  {} // ERROR!
+};
+```
+
+Giả sử ta ta xóa đi dòng `: Computer{ name, cpu, storage, display }`, Thì chức năng của hai lớp Laptop, và Desktop sẽ có những ảnh hưởng sau đây:
+
+- <h4>Lỗi biên dịch ở Laptop, và Desktop</h4>
+
+  Với code được trình bày ở bên trên, nếu ta xóa `: Computer{ name, cpu, storage, display }` thì ngay lập tức một lỗi biên dịch là `no default constructor exists for class "Computer"`. Lỗi này ám chỉ rằng, khi lớp Laptop, Desktop kế thừa từ Computer, _hàm tạo của lớp cơ sở mà chúng kế thừa (Computer) sẽ được gọi trước tiên_ để khởi tạo các thành viên của nó. Nếu hàm tạo tham số hiện tại của Computer không được gọi, thì hàm tạo mặc định của nó sẽ được gọi. Tuy nhiên trong trường hợp này, ở Computer không có hàm tạo mặc định nào cả, mà chỉ có duy nhất một hàm tạo tham số, thế nên lỗi trên bị nhả ra như một điều tất yếu.
+
+  ```c++
+  // Ko có hàm tạo mặc định
+  Computer() = default;
+
+  // Mà chỉ có duy nhất hàm tạo tham số
+  Computer(
+    const std::string name,
+    const CPU &cpu,
+    const Storage &storage,
+    const Display &display
+  ) : m_name{ name }, m_cpu{ cpu }, m_storage{ storage }, m_display{ display } {}
+  ```
+
+  Để có thể khắc phục được lỗi này, chúng ta cần thêm một hàm tạo mặc định cho lớp Computer như sau:
+
+  ```c++
+  class Computer
+  {
+    // ...
+
+  public:
+    // Thêm hàm tạo mặc định
+    Computer() = default;
+
+    // ...
+  }
+  ```
+
+- <h4>Thành viên kế thừa bị ảnh hưởng</h4>
+
+  Nếu ta không định nghĩa `: Computer{name, cpu, storage, display}` trong hàm tạo của lớp dẫn xuất (Laptop, Desktop), thì những biến thành viên như `m_name`, `m_cpu`, `m_storage`, và `m_display` của lớp Computer sẽ không được khởi tạo. Điều này có nghĩa Laptop sẽ kế thừa những thành viên `m_name`, `m_cpu`, `m_storage`, và `m_display` có giá trị rỗng, tức chưa được khởi tạo và gán giá trị.
+
+  ```c++
+  class Laptop : public Computer
+  {
+  public:
+    Laptop(
+      const std::string name,
+      const CPU &cpu,
+      const Storage &storage,
+      const Display &display
+    )
+    // Giả sử ta xóa dòng này
+    // : Computer{ name, cpu, storage, display }
+    {}
+
+    // Thì thành viên `m_name` sẽ là rỗng, tức không được khai báo và gán giá trị.
+    // `m_cpu`, `m_storage`, hay `m_display` lúc này cũng sẽ là rỗng
+    std::string getName() { return this->m_name; }
+  };
+  ```
+
+Bản chất của quan hệ kế thừa là lớp con (sub/derived class) sẽ kế thừa và "phát huy" những gì mà lớp cha (super/base class) đang sở hữu. Việc nắm rõ được bản chất của mối quan hệ giữa lớp cha và con, cũng như cách mà các thành viên trong chúng được kế thừa giúp ta có thể thiết kế ra những lớp phức tạp hơn, code sẽ ít lặp lại hơn, có thể sử tái sử dụng, cũng như mà mở rộng nếu cần.
 
 ### Object Dependencies
 
@@ -135,7 +248,7 @@ public:
   Hardware(const std::string name) : m_name{ name } {}
 
   void run() {
-    // Run the hardware
+    std::cout << "Run the hardware" << std::endl;
   }
 };
 
@@ -148,7 +261,7 @@ public:
   OperatingSystem(const std::string name) : m_name{ name } {}
 
   void run() {
-    // Run the Operating System
+    std::cout << "Run the Operating System" << std::endl;
   }
 };
 
@@ -159,15 +272,15 @@ class Computer
     OperatingSystem *m_os;
 
   public:
-    // Inject dependencies of `m_hw`, and `m_os` via constructor,
-    // we call it Constructor Injection
+    // Gán sự phụ thuộc `m_hw`, `m_os` thông qua hàm tạo.
+    // Kĩ thuật này còn được gọi là Constructor Injection
     Computer(hardware *hw, OperatingSystem *os) : m_hw {hw}, m_os {os} {}
 
     void run() {
-      m_hw->run(); // Invoke run() via dependency of m_hw
-      m_os->run(); // Invoke run() via dependency of m_os
+      m_hw->run(); // Ta có thể gọi hàm `run()` thông qua việc gán phụ thuộc `m_hw`
+      m_os->run(); // Ta có thể gọi hàm `run()` thông qua việc gán phụ thuộc `m_os`
 
-      // Run the Computer
+      std::cout << "Run the Computer" << std::endl;
     }
 };
 
@@ -190,6 +303,6 @@ Kiểu đối tượng quan hệ (Object Relationship) được dùng rất nhi�
 
 ### Đọc thêm
 
-[OOP 101: Object Relationships (phần 1)](https://frankiie12a9.github.io/posts/oop-object-relationship-1/#!)
+- [OOP 101: Object Relationships (phần 1)](https://frankiie12a9.github.io/posts/oop-object-relationship-1/#!)
 
 **_Mình viết blog để tổng hợp lại những gì mình đã học, và cũng như học cách trình bày sao cho người khác có thể hiểu được, nên bài viết có thể tồn tại bug hoặc chưa hoàn thiện đâu đó. Nếu có gì liên quan đến bài viết, cần giúp debug, etc. thì đừng ngần ngại mà hãy cứ nhắn tin cho mình qua [Facebook](https://www.facebook.com/frankiie12a9/) nha._**
