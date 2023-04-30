@@ -145,9 +145,7 @@ public:
     const CPU &cpu,
     const Storage &storage,
     const Display &display
-  )
-  // : Computer{ name, cpu, storage, display }
-  {} // ERROR!
+  ) : Computer{ name, cpu, storage, display } {}
 };
 
 class Desktop : public Computer
@@ -159,9 +157,7 @@ public:
     const CPU &cpu,
     const Storage &storage,
     const Display &display
-  )
-  // : Computer{ name, cpu, storage, display }
-  {} // ERROR!
+  ) : Computer{ name, cpu, storage, display } {}
 };
 ```
 
