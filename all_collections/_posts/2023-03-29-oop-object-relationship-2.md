@@ -29,7 +29,6 @@ protected:
   Display m_display;
 
 public:
-  Computer() = default;
   Computer(
     const std::string &name,
     const CPU &cpu,
