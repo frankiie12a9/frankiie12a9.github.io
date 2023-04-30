@@ -219,7 +219,7 @@ Giả sử ta ta xóa đi dòng `: Computer{ name, cpu, storage, display }`, Th�
 
 - <h5>Thành viên kế thừa bị ảnh hưởng</h5>
 
-  Nếu ta không định nghĩa `: Computer{name, cpu, storage, display}` trong hàm tạo của lớp dẫn xuất (Laptop, Desktop), thì những biến thành viên như `m_name`, `m_cpu`, `m_storage`, và `m_display` của lớp Computer sẽ không được khởi tạo. Điều này có nghĩa Laptop sẽ kế thừa những thành viên `m_name`, `m_cpu`, `m_storage`, và `m_display` có giá trị rỗng, tức chưa được khởi tạo và gán giá trị.
+  Nếu ta không định nghĩa `: Computer{ name, cpu, storage, display }` trong hàm tạo của lớp dẫn xuất (Laptop, Desktop), thì những biến thành viên như `m_name`, `m_cpu`, `m_storage`, và `m_display` của lớp Computer sẽ không được khởi tạo. Điều này có nghĩa Laptop sẽ kế thừa những thành viên `m_name`, `m_cpu`, `m_storage`, và `m_display` có giá trị rỗng, tức chưa được khởi tạo và gán giá trị.
 
   ```c++
   class Laptop : public Computer
@@ -290,7 +290,7 @@ class Computer
   public:
     // Gán sự phụ thuộc `m_hw`, `m_os` thông qua hàm tạo.
     // Kĩ thuật này còn được gọi là Constructor Injection
-    Computer(hardware *hw, OperatingSystem *os) : m_hw {hw}, m_os {os} {}
+    Computer(hardware *hw, OperatingSystem *os) : m_hw{ hw }, m_os{ os } {}
 
     void run() {
       m_hw->run(); // Ta có thể gọi hàm `run()` thông qua việc gán phụ thuộc `m_hw`
