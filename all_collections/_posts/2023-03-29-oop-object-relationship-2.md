@@ -120,7 +120,7 @@ int main()
   <strong>strongly important</strong> and this text is <em>emphasized</em>
 </details> -->
 
-> **Ở ví dụ dược trình bày trên, liệu bạn có tự hỏi rằng, trong hai lớp `Laptop`, và `Desktop`, tại sao chúng ta lại khai báo kế thừa thuộc tính thành viên từ lớp Computer thông qua hàm tạo tham số `: Computer{ name, cpu, storage, display } {}`? Nó có vai trò gì? Sẽ ra sao nếu chúng ta lược bỏ nó?**
+> **Ở ví dụ dược trình bày trên, liệu bạn có tự hỏi rằng, ở hàm tạo tham số trong hai lớp `Laptop`, và `Desktop`, tại sao chúng ta lại khai báo kế thừa thuộc tính thành viên từ lớp Computer thông qua hàm tạo tham số `: Computer{ name, cpu, storage, display } {}`? Nó có vai trò gì? Sẽ ra sao nếu chúng ta lược bỏ nó?**
 
 Ở lớp Computer, chúng ta thấy nó có một hàm tạo tham số (parameterized constructor), nơi mà những thuộc tính của một Computer được khai báo và gán giá trị với những tham số tương ứng.
 
