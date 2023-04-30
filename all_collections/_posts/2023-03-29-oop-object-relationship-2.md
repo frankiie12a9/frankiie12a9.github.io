@@ -163,7 +163,7 @@ public:
 
 Giả sử ta ta xóa đi dòng `: Computer{ name, cpu, storage, display }`, Thì chức năng của hai lớp Laptop, và Desktop sẽ có những ảnh hưởng sau đây:
 
-- <h4>Lỗi biên dịch ở Laptop, và Desktop</h4>
+- <h5>Lỗi biên dịch ở Laptop, và Desktop</h5>
 
   Với code được trình bày ở bên trên, nếu ta xóa `: Computer{ name, cpu, storage, display }`
   thì ngay lập tức một lỗi biên dịch là `no default constructor exists for class "Computer"`. Lỗi này ám chỉ rằng, khi lớp Laptop, Desktop kế thừa từ Computer, _hàm tạo của lớp cơ sở mà chúng kế thừa (Computer) sẽ được gọi trước tiên_ để khởi tạo các thành viên của nó. Nếu hàm tạo tham số hiện tại của Computer không được gọi, thì hàm tạo mặc định của nó sẽ được gọi. Tuy nhiên trong trường hợp này, ở Computer không có hàm tạo mặc định nào cả, mà chỉ có duy nhất một hàm tạo tham số, thế nên lỗi trên bị nhả ra như một điều tất yếu.
@@ -217,7 +217,7 @@ Giả sử ta ta xóa đi dòng `: Computer{ name, cpu, storage, display }`, Th�
   }
   ```
 
-- <h4>Thành viên kế thừa bị ảnh hưởng</h4>
+- <h5>Thành viên kế thừa bị ảnh hưởng</h5>
 
   Nếu ta không định nghĩa `: Computer{name, cpu, storage, display}` trong hàm tạo của lớp dẫn xuất (Laptop, Desktop), thì những biến thành viên như `m_name`, `m_cpu`, `m_storage`, và `m_display` của lớp Computer sẽ không được khởi tạo. Điều này có nghĩa Laptop sẽ kế thừa những thành viên `m_name`, `m_cpu`, `m_storage`, và `m_display` có giá trị rỗng, tức chưa được khởi tạo và gán giá trị.
 
