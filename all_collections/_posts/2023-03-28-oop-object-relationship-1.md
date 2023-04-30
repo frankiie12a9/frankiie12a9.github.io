@@ -32,7 +32,7 @@ Chúng ta sẽ lấy vị dụ `máy tính (Computer)` và những thành phần
 
 `Components.h`
 
-```c++
+```cpp
 #ifndef COMPONENTS_H
 #define COMPONENTS_H
 
@@ -62,7 +62,7 @@ struct Display
 
 `Computer.h`
 
-```c++
+```cpp
 #ifndef COMPUTER_H
 #define COMPUTER_H
 
@@ -74,7 +74,7 @@ class Computer
 private:
   std::string m_name;
 
-  // Composition - a Computer owns CPU, Storage, and Display components
+  // Composition - a Computer sở hữu CPU, Storage, và Display
   CPU m_cpu;
   Storage m_storage;
   Display m_display;
@@ -84,9 +84,8 @@ public:
     const std::string &name,
     const CPU &cpu,
     const Storage &storage,
-    const Display &display )
-      : m_name{ name }, m_cpu{ CPU }, m_storage{ storage }, m_display{ display }
-    {}
+    const Display &display
+  ) : m_name{ name }, m_cpu{ CPU }, m_storage{ storage }, m_display{ display } {}
 
   // Overloaded output operator
   friend std::ostream& operator<<(std::ostream& out, const Computer& computer) {
@@ -137,7 +136,7 @@ Chúng ta sẽ lấy ví dụ về `máy tính (Computer)` liên kết với `ch
 
 `Peripheral.h`
 
-```c++
+```cpp
 #ifndef PERIPHERAL_H
 #define PERIPHERAL_H
 
@@ -158,7 +157,7 @@ struct Keyboard
 
 `Aggregation/Computer.h`
 
-```c++
+```cpp
 #ifndef COMPUTER_H
 #define COMPUTER_H
 
@@ -174,8 +173,7 @@ private:
     Storage m_storage;
     Display m_display;
 
-    // Aggregation - Computer has a reference to a Mouse,
-    // and Keyboards but doesn't own them
+    // Aggregation - Computer có tham chiếu đến Mouse, và Keyboards chứ không sở hữu chúng
     Mouse m_mouse;
     std::vector<Keyboard> m_keyboards;
 
@@ -251,7 +249,7 @@ Dưới đây ta có ví dụ `người dùng` và `máy tính công cộng` v�
 
 `User.h`
 
-```c++
+```cpp
 #ifndef USER_H
 #define USER_H
 
@@ -339,24 +337,24 @@ public:
 
 // Driver
 int main() {
-    Computer computer {
+    Computer computer{
       "Dell DX-3",
       {8, 4},           // CPU
       {16, "SSD"},      // Storage
       {1920 * 1080, 50} // Display
     };
 
-    Keyboard kb { "Keychron k4", "Keychron" };
-    Keyboard kb1 { "Apple", "Magic keyboard" };
-    Mouse ms { "Logitech F12", "Logitech" };
+    Keyboard kb{ "Keychron k4", "Keychron" };
+    Keyboard kb1{ "Apple", "Magic keyboard" };
+    Mouse ms{ "Logitech F12", "Logitech" };
 
     computer.setMouse(ms);
     computer.addKeyboard(kb);
     computer.addKeyboard(kb1);
 
-    User user {1, "alice"};
+    User user{ 1, "Alice" };
 
-    // set associated User
+    // Gán User hiện tại cho Computer
     computer.setUsedBy(&user);
 
     std::cout << computer << std::endl;
@@ -397,7 +395,7 @@ private:
     std::string m_name;
     User *m_user;
 
-    // Indirect asociation - current Computer's User can access the Remote Computer
+    // Indirect asociation - User có thể gián tiếp kết nối với RemoteComputer thông qua Computer
     RemoteComputer *m_remoteComp;
 
 public:
@@ -563,9 +561,5 @@ Mặt khác, việc sử dụng liên kết gián tiếp giúp code giữa các 
 | Vòng đời ràng buộc | Có               | Không            | Không              |
 | Hướng quan hệ      | Đơn hướng        | Đơn hướng        | Đơn hướng/Đa hướng |
 | Động từ quan hệ    | Has-a            | Has-a            | Uses-a             |
-
-### Đọc thêm
-
-[OOP 101: Object Relationships (phần 2)](https://frankiie12a9.github.io/posts/oop-object-relationship-2/#!)
 
 **_Mình viết blog để tổng hợp lại những gì mình đã học, và cũng như học cách trình bày sao cho người khác có thể hiểu được, nên bài viết có thể tồn tại bug hoặc chưa hoàn thiện đâu đó. Nếu có gì liên quan đến bài viết, cần giúp debug, etc. thì đừng ngần ngại mà hãy cứ nhắn tin cho mình qua [Facebook](https://www.facebook.com/frankiie12a9/) nha._**
