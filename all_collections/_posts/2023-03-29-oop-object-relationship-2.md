@@ -306,7 +306,7 @@ int main()
   Hardware hw{ "Apple" };
   OperatingSystem os{ "Unix" };
 
-  Computer c{"Macbook Pro", &hw, &os};
+  Computer c{ "Macbook Pro", &hw, &os };
   c.run();
 
   return 0;
