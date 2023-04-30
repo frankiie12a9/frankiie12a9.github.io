@@ -169,10 +169,32 @@ Giả sử ta ta xóa đi dòng `: Computer{ name, cpu, storage, display }`, Th�
 
 - <h4>Lỗi biên dịch ở Laptop, và Desktop</h4>
 
-  Với code được trình bày ở bên trên, nếu ta xóa `: Computer{ name, cpu, storage, display }` thì ngay lập tức một lỗi biên dịch là `no default constructor exists for class "Computer"`. Lỗi này ám chỉ rằng, khi lớp Laptop, Desktop kế thừa từ Computer, _hàm tạo của lớp cơ sở mà chúng kế thừa (Computer) sẽ được gọi trước tiên_ để khởi tạo các thành viên của nó. Nếu hàm tạo tham số hiện tại của Computer không được gọi, thì hàm tạo mặc định của nó sẽ được gọi. Tuy nhiên trong trường hợp này, ở Computer không có hàm tạo mặc định nào cả, mà chỉ có duy nhất một hàm tạo tham số, thế nên lỗi trên bị nhả ra như một điều tất yếu.
+  Với code được trình bày ở bên trên, nếu ta xóa `: Computer{ name, cpu, storage, display }`
+  thì ngay lập tức một lỗi biên dịch là `no default constructor exists for class "Computer"`. Lỗi này ám chỉ rằng, khi lớp Laptop, Desktop kế thừa từ Computer, _hàm tạo của lớp cơ sở mà chúng kế thừa (Computer) sẽ được gọi trước tiên_ để khởi tạo các thành viên của nó. Nếu hàm tạo tham số hiện tại của Computer không được gọi, thì hàm tạo mặc định của nó sẽ được gọi. Tuy nhiên trong trường hợp này, ở Computer không có hàm tạo mặc định nào cả, mà chỉ có duy nhất một hàm tạo tham số, thế nên lỗi trên bị nhả ra như một điều tất yếu.
 
   ```c++
-  // Ko có hàm tạo mặc định
+  // Hàm tạo tham số của Laptop
+   Laptop(
+    const std::string name,
+    const CPU &cpu,
+    const Storage &storage,
+    const Display &display
+  )
+  // : Computer{ name, cpu, storage, display }
+  {} // ERROR!
+
+  // Hàm tạo tham số của Desktop
+  Desktop(
+    const std::string name,
+    const CPU &cpu,
+    const Storage &storage,
+    const Display &display
+  )
+  // : Computer{ name, cpu, storage, display }
+  {} // ERROR!
+
+
+  // Hiện tại lớp Computer không có hàm tạo mặc định
   Computer() = default;
 
   // Mà chỉ có duy nhất hàm tạo tham số
