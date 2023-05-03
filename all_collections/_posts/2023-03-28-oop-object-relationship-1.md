@@ -1,8 +1,9 @@
----
+b---
 layout: post
 title: OOP 101 - Object Relationships (phần 1)
 date: 2023-03-28
 categories: ["dev", "oop", "cplusplus", "vi"]
+
 ---
 
 Lập trình hướng đối tượng được xây dựng trên ý tưởng về các đối tượng và mối quan hệ của chúng với nhau. Những mối quan hệ này rất cần thiết trong việc tạo ra các chương trình có tính mô-đun, có thể bảo trì và hiệu quả. Việc hiểu các loại quan hệ khác nhau giữa các đối tượng là rất quan trọng để thiết kế các hệ thống phần mềm hiệu quả.
@@ -28,7 +29,24 @@ Những đối tượng được coi là đủ điều kiện của một Object
 
 #### Ví dụ Code
 
-Chúng ta sẽ lấy vị dụ `máy tính (Computer)` và những thành phần bên trong của nó như `CPU`, `bộ nhớ (Storage)`, và `(Display)`. Mỗi một máy tính thì đều cần phải có CPU để xử lí những tính toán, bộ nhớ để lưu trữ dữ liệu, và Display để hiển thị kết quả.
+Chúng ta sẽ lấy vị dụ `máy tính (Computer)` và những thành phần bên trong của nó như `CPU`, `bộ nhớ (Storage)`, và `(Display)`.
+
+```
++----------------------------+
+|          Computer          |
+|----------------------------|
+|           CPU              |
+|          Storage           |
+|          Display           |
++----------------------------+
+   |          |          |
+   |          |          |
++------+ +---------+ +---------+
+| CPU  | | Storage | | Display |
++------+ +---------+ +---------+
+```
+
+Mỗi một máy tính thì đều cần phải có CPU để xử lí những tính toán, bộ nhớ để lưu trữ dữ liệu, và Display để hiển thị kết quả.
 
 `Components.h`
 
@@ -132,7 +150,25 @@ Chúng ta có thể minh hoạ Object Aggregation thông qua ví dụ như, `chi
 
 #### Code Ví dụ
 
-Chúng ta sẽ lấy ví dụ về `máy tính (Computer)` liên kết với `chuột (Mouse)`, và `bàn phím (Keyboard)`. Một cái máy tính có thể kết nối với một hoặc nhiều cái chuột, và một hoặc nhiều cái bàn phím.
+Chúng ta sẽ lấy ví dụ về `máy tính (Computer)` liên kết với `chuột (Mouse)`, và `bàn phím (Keyboard)`.
+
+```
+                    +--------------------------+
+                    |          Computer        |
+                    |--------------------------|
+                    |           Mouse          |
+                    |          Keyboard        |
+                    +--------------------------+
+                          |              |
+                          |              |
+                      +-------+      +----------+
+                      | Mouse |      | Keyboard |
+                      +-------+      +----------+
+```
+
+> `Object Composition`, và `Aggregation` đều là kiểu quan hệ "has-a" nên cách biểu thị diagram cuả chúng cũng tương tự nhau.
+
+Một cái máy tính có thể kết nối với một hoặc nhiều cái chuột, và một hoặc nhiều cái bàn phím.
 
 `Peripheral.h`
 
@@ -245,7 +281,15 @@ Không giống như Composition hay Aggregation, nơi mà đối tượng sở h
 
 #### Directional association
 
-Dưới đây ta có ví dụ `người dùng` và `máy tính công cộng` về một đối tượng người dùng liên kết và sử dụng chiếc máy tính.
+Dưới đây ta có ví dụ `người dùng (User)` và `máy tính (Computer)`
+
+```
+                      +------+     +----------+
+                      | User |-----| Computer |
+                      +------+     +----------+
+```
+
+Một đối tượng người dùng liên kết và sử dụng chiếc máy tính.
 
 `User.h`
 
@@ -369,7 +413,15 @@ int main() {
 
 Khác với liên kết trực tiếp (directional association) được minh họa ở ví dụ trên thì liên kết gián tiếp (indirectional association) ám chỉ hai hay nhiều đối tượng liên kết với nhau thông qua một đối tượng khác làm trung gian. Ta có thể minh họa kiểu quan hệ này thông qua ví dụ một `người dùng (User)` kết nối với `một máy tính từ xa (Remote Computer)` bằng cách gián tiếp khi sử dụng một `máy tính trung gian (Computer)`.
 
-E.g, `User` <-> `Computer` <-> `Remote Computer`
+<h6>Diagram minh họa</h6>
+
+```
+                +------+     +----------+     +-----------------+
+                | User |-----| Computer |-----| Remote Computer |
+                +------+     +----------+     +-----------------+
+```
+
+<h6>Code ví dụ:</h6>
 
 ```c++
 #ifndef COMPUTER_H
@@ -444,6 +496,16 @@ int main() {
 
 Dưới đây là ví dụ minh họa cho Liên kết đơn hướng. Đối tượng User chứa 0 hoặc nhiều Computer, Còn Computer thì không chứa bất kì một User nào cả. Điều này có nghĩa, từ User, chúng ta có thể gọi và sử dụng những thuộc tính (attributes) của Computer, tuy nhiên từ Computer, chúng ta không thể gọi và sử dụng bất kì thuộc tính nào của User.
 
+<h6>Diagram minh họa</h6>
+
+```
+                      +------+       +----------+
+                      | User |X----->| Computer |
+                      +------+       +----------+
+```
+
+<h6>Code ví dụ:</h6>
+
 ```c++
 #include <iostream>
 #include <vector>
@@ -490,6 +552,16 @@ int main()  {
 #### Bidirectional association
 
 Dưới đây là ví dụ minh họa cho Liên kết đa hướng. Đối tượng User chứa 0 hoặc nhiều Computer, Còn mỗi Computer thì sẽ chứa một User. Điều này có nghĩa, từ User, chúng ta có thể gọi và sử dụng những thuộc tính (attributes) của Computer, và từ Computer, chúng ta cũng có thể gọi hoặc sử dụng bất kì thuộc tính nào của User mà nó đang được liên kết.
+
+<h6>Diagram minh họa</h6>
+
+```
+                          +------+        +----------+
+                          | User |<------>| Computer |
+                          +------+        +----------+
+```
+
+<h6>Code ví dụ:</h6>
 
 ```c++
 #include <iostream>
