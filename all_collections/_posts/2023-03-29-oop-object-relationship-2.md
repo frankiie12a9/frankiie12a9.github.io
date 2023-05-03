@@ -13,7 +13,28 @@ Inheritance là một kiểu quan hệ "is-a", nơi mà một, hoặc nhiều đ
 
 #### Code ví dụ
 
-Ở ví dụ sau đây, chúng ta sẽ dùng chiếc `máy tính (Computer)`, `máy tính xách tay (Laptop)`, và `máy tính bàn (Desktop)`. Máy tính xách tay, hay máy tính bàn nhìn chung đều được coi là một máy tính. Chúng cũng có cho mình những bộ phận chung của một chiếc máy tính như CPU, ổ lưu trữ, Display, hay hệ điều hành... Từ đó, ta có thể thấy máy tính xách tay, và máy tính bàn đều có thể kế thừa những thuộc tính nêu trên từ một đối tượng máy tính.
+Ở ví dụ sau đây, chúng ta sẽ dùng chiếc `máy tính (Computer)`, `máy tính xách tay (Laptop)`, và `máy tính bàn (Desktop)`.
+
+<div style="text-align: center;">
+  <pre style="margin: 0; border: none;">
++----------------+
+|   Computer     |
+|----------------|
+| name           |
+| CPU            |
+| Storage        |
+| Display        |
++----------------+
+/ \
+         /    \         
+  /      \  
+ /        \ 
++--------+  +---------+
+| Laptop |  | Desktop |
++--------+  +---------+
+  </pre>
+</div>
+Máy tính xách tay, hay máy tính bàn nhìn chung đều được coi là một máy tính. Chúng cũng có cho mình những bộ phận chung của một chiếc máy tính như CPU, ổ lưu trữ, Display, hay hệ điều hành... Từ đó, ta có thể thấy máy tính xách tay, và máy tính bàn đều có thể kế thừa những thuộc tính nêu trên từ một đối tượng máy tính.
 
 ```c++
 #include <iostream>
@@ -245,11 +266,34 @@ Bản chất của quan hệ kế thừa là lớp con (sub/derived class) sẽ 
 
 ### Object Dependencies
 
-Dependency là một kiểu quan hệ, nơi mà một hoặc nhiều đối tượng phụ thuộc đối tượng khác để thực thi nhiệm vụ của nó. Cũng giống với Aggregation, và Associtation, các đối tượng trong quan hệ Dependency, tồn tại độc lập, và vòng đời của đối tượng phụ thuộc không bị ràng buộc bởi đối tuợng bị phụ thuộc. Đối với kiểu quan hệ này, chúng ta có thể dễ dàng thấy nó được dùng để minh họa trong những ví dụ, một chiếc `máy tính (Computer)` có thể sử dụng `hệ điều hành (Operating System)` Windows, hoặc Unix, Linux, việc dùng hệ điều nào đi chăng nữa thì cũng không ảnh hưởng tới chức năng của máy. Hệ điều hành chỉ là một phần được gắn vào máy tính để phục vụ những chức năng mà nó mang lại.
+Dependency là một kiểu quan hệ, nơi mà một hoặc nhiều đối tượng phụ thuộc đối tượng khác để thực thi nhiệm vụ của nó. Cũng giống với Aggregation, và Associtation, các đối tượng trong quan hệ Dependency, tồn tại độc lập, và vòng đời của đối tượng phụ thuộc không bị ràng buộc bởi đối tuợng bị phụ thuộc. Đối với kiểu quan hệ này, chúng ta có thể dễ dàng thấy nó được dùng để minh họa trong những ví dụ, một chiếc `máy tính (Computer)` có thể sử dụng `hệ điều hành (Operating System)` như Windows, Unix, hoặc Linux. Việc dùng hệ điều nào đi chăng nữa thì cũng không ảnh hưởng tới chức năng của máy. Hệ điều hành chỉ là một phần được gắn vào máy tính để phục vụ những chức năng mà nó mang lại.
 
 #### Code ví dụ
 
-Ở ví dụ sau đây, chúng ta sẽ minh họa thông qua chiếc `máy tính (Computer)`, `phần cứng (Hardware)`, và `hệ điều hành (Operating System)`. Để máy tính có thể thực hiện được những công việc mang tính chất vật lí, chúng cần đến những bộ phận như CPU, ổ lưu trữ (Storage),.. những bộ phận này thuộc về phần cứng, và để quản lí được phần cứng, cũng như hệ sinh thái phần mềm, máy tính phải cần đến hệ điều hành. Qua những điều trên cho ta thấy, máy tính sẽ phải phụ thuộc vào phần cứng, và hệ điều hành.
+Ở ví dụ sau đây, chúng ta sẽ minh họa thông qua chiếc `máy tính (Computer)`, `phần cứng (Hardware)`, và `hệ điều hành (Operating System)`.
+
+<div style="position: relative; text-align: center;">
+ <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1;">
+    Your text goes here fdfdfdfdfdf
+  </div>
+  <pre style="margin:0; border:none;">
++------------+
+|  Computer  |
++------------+
+|
+|
++------------+
+|  Hardware  |
++------------+
+|
+|
++------------+
+| Operating  |
+|  System    |
++------------+
+  </pre>
+</div>
+Một chiếc máy tính cần có phần cứng để có thể thực hiện được những công việc mang tính chất vật lí, CPU của phần cứng giúp máy tính có thể thực hiện được những tính toán, ổ lưu trữ giúp máy tính có thể sao lưu dữ liệu...Tương tự, máy tính cũng cần hệ điều hành để có thể thực thi chức năng tương tác và quản lí phần cứng. Qua những điều trên cho ta thấy, một chiếc máy tính sẽ phải phụ thuộc và phần cứng và hệ điều hành.
 
 ```c++
 #include <iostream>
@@ -278,6 +322,8 @@ public:
 
   void run() {
     std::cout << "Run the Operating System" << std::endl;
+
+    std::cout << "Started managing the hardware" << std::endl;
   }
 };
 
