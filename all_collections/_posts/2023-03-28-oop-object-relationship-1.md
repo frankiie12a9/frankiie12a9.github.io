@@ -32,18 +32,18 @@ Những đối tượng được coi là đủ điều kiện của một Object
 Chúng ta sẽ lấy vị dụ `máy tính (Computer)` và những thành phần bên trong của nó như `CPU`, `bộ nhớ (Storage)`, và `(Display)`.
 
 ```
-+----------------------------+
-|          Computer          |
-|----------------------------|
-|           CPU              |
-|          Storage           |
-|          Display           |
-+----------------------------+
-   |          |          |
-   |          |          |
-+------+ +---------+ +---------+
-| CPU  | | Storage | | Display |
-+------+ +---------+ +---------+
+                            +----------------------------+
+                            |          Computer          |
+                            |----------------------------|
+                            |           CPU              |
+                            |          Storage           |
+                            |          Display           |
+                            +----------------------------+
+                                |          |          |
+                                |          |          |
+                           +------+ +---------+ +---------+
+                           | CPU  | | Storage | | Display |
+                           +------+ +---------+ +---------+
 ```
 
 Mỗi một máy tính thì đều cần phải có CPU để xử lí những tính toán, bộ nhớ để lưu trữ dữ liệu, và Display để hiển thị kết quả.
@@ -153,17 +153,17 @@ Chúng ta có thể minh hoạ Object Aggregation thông qua ví dụ như, `chi
 Chúng ta sẽ lấy ví dụ về `máy tính (Computer)` liên kết với `chuột (Mouse)`, và `bàn phím (Keyboard)`.
 
 ```
-                    +--------------------------+
-                    |          Computer        |
-                    |--------------------------|
-                    |           Mouse          |
-                    |          Keyboard        |
-                    +--------------------------+
-                          |              |
-                          |              |
-                      +-------+      +----------+
-                      | Mouse |      | Keyboard |
-                      +-------+      +----------+
+                          +--------------------------+
+                          |          Computer        |
+                          |--------------------------|
+                          |           Mouse          |
+                          |          Keyboard        |
+                          +--------------------------+
+                                |              |
+                                |              |
+                            +--------+    +----------+
+                            | Mouse  |    | Keyboard |
+                            +--------+    +----------+
 ```
 
 > `Object Composition`, và `Aggregation` đều là kiểu quan hệ "has-a" nên cách biểu thị diagram cuả chúng cũng tương tự nhau.
@@ -284,9 +284,9 @@ Không giống như Composition hay Aggregation, nơi mà đối tượng sở h
 Dưới đây ta có ví dụ `người dùng (User)` và `máy tính (Computer)`
 
 ```
-                      +------+     +----------+
-                      | User |-----| Computer |
-                      +------+     +----------+
+                            +------+     +----------+
+                            | User |-----| Computer |
+                            +------+     +----------+
 ```
 
 Một đối tượng người dùng liên kết và sử dụng chiếc máy tính.
@@ -416,9 +416,9 @@ Khác với liên kết trực tiếp (directional association) được minh h�
 <h6>Diagram minh họa</h6>
 
 ```
-                +------+     +----------+     +-----------------+
-                | User |-----| Computer |-----| Remote Computer |
-                +------+     +----------+     +-----------------+
+                    +------+     +----------+     +-----------------+
+                    | User |-----| Computer |-----| Remote Computer |
+                    +------+     +----------+     +-----------------+
 ```
 
 <h6>Code ví dụ:</h6>
@@ -499,9 +499,9 @@ Dưới đây là ví dụ minh họa cho Liên kết đơn hướng. Đối tư
 <h6>Diagram minh họa</h6>
 
 ```
-                      +------+       +----------+
-                      | User |X----->| Computer |
-                      +------+       +----------+
+                            +------+       +----------+
+                            | User |X----->| Computer |
+                            +------+       +----------+
 ```
 
 <h6>Code ví dụ:</h6>
@@ -556,9 +556,9 @@ Dưới đây là ví dụ minh họa cho Liên kết đa hướng. Đối tư�
 <h6>Diagram minh họa</h6>
 
 ```
-                          +------+        +----------+
-                          | User |<------>| Computer |
-                          +------+        +----------+
+                            +------+        +----------+
+                            | User |<------>| Computer |
+                            +------+        +----------+
 ```
 
 <h6>Code ví dụ:</h6>
@@ -622,7 +622,7 @@ Liên kết trực tiếp nhìn chung thì có vẻ đơn giản hơn, ta có th
 
 Mặt khác, việc sử dụng liên kết gián tiếp giúp code giữa các đối tượng có liên quan sẽ ít kết dính hơn, bởi vì quan hệ giữa các đối tượng được kết nối trung gian bởi một đối tượng khác. Điều này giúp ta có thể thêm xóa, sửa code mà không sợ bị ảnh hương tới những đối tượng liên quan. Tuy nhiên, liên kết gián tiếp cũng có thể làm cho code trở nên phức tạp hơn, khó hình dung quan hệ giữa các đối tượng.
 
-### Summary
+### Kết
 
 Để có thể dễ nhớ và hình dung những nguyên tắc của các kiểu quan hệ liên kê bên trên, ta có thể tham khảo bảng sau:
 
@@ -633,5 +633,7 @@ Mặt khác, việc sử dụng liên kết gián tiếp giúp code giữa các 
 | Vòng đời ràng buộc | Có               | Không            | Không              |
 | Hướng quan hệ      | Đơn hướng        | Đơn hướng        | Đơn hướng/Đa hướng |
 | Động từ quan hệ    | Has-a            | Has-a            | Uses-a             |
+
+</br>
 
 **_Mình viết blog để tổng hợp lại những gì mình đã học, và cũng như học cách trình bày sao cho người khác có thể hiểu được, nên bài viết có thể tồn tại bug hoặc chưa hoàn thiện đâu đó. Nếu có gì liên quan đến bài viết, cần giúp debug, etc. thì đừng ngần ngại mà hãy cứ nhắn tin cho mình qua [Facebook](https://www.facebook.com/frankiie12a9/) nha._**
