@@ -38,11 +38,11 @@ Chúng ta sẽ lấy vị dụ `máy tính (Computer)` và những thành phần
                             |          Storage           |
                             |          Display           |
                             +----------------------------+
-                                |          |          |
-                                |          |          |
-                           +------+ +---------+ +---------+
-                           | CPU  | | Storage | | Display |
-                           +------+ +---------+ +---------+
+                              |           |            |
+                              |           |            |
+                           +------+  +---------+  +---------+
+                           | CPU  |  | Storage |  | Display |
+                           +------+  +---------+  +---------+
 ```
 
 Mỗi một máy tính thì đều cần phải có CPU để xử lí những tính toán, bộ nhớ để lưu trữ dữ liệu, và Display để hiển thị kết quả.
