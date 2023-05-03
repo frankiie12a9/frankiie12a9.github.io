@@ -1,9 +1,8 @@
-b---
+---
 layout: post
 title: OOP 101 - Object Relationships (phần 1)
 date: 2023-03-28
 categories: ["dev", "oop", "cplusplus", "vi"]
-
 ---
 
 Lập trình hướng đối tượng được xây dựng trên ý tưởng về các đối tượng và mối quan hệ của chúng với nhau. Những mối quan hệ này rất cần thiết trong việc tạo ra các chương trình có tính mô-đun, có thể bảo trì và hiệu quả. Việc hiểu các loại quan hệ khác nhau giữa các đối tượng là rất quan trọng để thiết kế các hệ thống phần mềm hiệu quả.
