@@ -643,7 +643,7 @@ Mặt khác, việc sử dụng liên kết gián tiếp giúp code giữa các 
 
 <br>
 
-- Next » <a href="https://frankiie12a9.github.io/posts/oop-object-relationship-2/">OOP 101 - Object Relationships (phần 2)</a>
+Next » <a href="https://frankiie12a9.github.io/posts/oop-object-relationship-2/">OOP 101 - Object Relationships (phần 2)</a>
 
 <br>
 
