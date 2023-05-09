@@ -141,7 +141,7 @@ int main()
   <strong>strongly important</strong> and this text is <em>emphasized</em>
 </details> -->
 
-> **Ở ví dụ dược trình bày trên, liệu bạn có tự hỏi rằng, ở hàm tạo tham số trong hai lớp `Laptop`, và `Desktop`, tại sao chúng ta lại khai báo kế thừa thuộc tính thành viên từ lớp Computer thông qua hàm tạo tham số `: Computer{ name, cpu, storage, display } {}`? Nó có vai trò gì? Sẽ ra sao nếu chúng ta lược bỏ nó?**
+> _Ở ví dụ dược trình bày trên, liệu bạn có tự hỏi rằng, ở hàm tạo tham số trong hai lớp `Laptop`, và `Desktop`, tại sao chúng ta lại khai báo kế thừa thuộc tính thành viên từ lớp Computer thông qua hàm tạo tham số `: Computer{ name, cpu, storage, display } {}`? Nó có vai trò gì? Sẽ ra sao nếu chúng ta lược bỏ nó?_
 
 Ở lớp Computer, chúng ta thấy nó có một hàm tạo tham số (parameterized constructor), nơi mà những thuộc tính của một Computer được khai báo và gán giá trị với những tham số tương ứng.
 
@@ -274,7 +274,6 @@ Dependency là một kiểu quan hệ, nơi mà một hoặc nhiều đối tư�
 
 <div style="position: relative; text-align: center;">
  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1;">
-    Your text goes here fdfdfdfdfdf
   </div>
   <pre style="margin:0; border:none;">
 +------------+
@@ -363,8 +362,10 @@ int main()
 
 Kiểu đối tượng quan hệ (Object Relationship) được dùng rất nhiều trong những ngôn ngữ lập trình hướng đối tượng như C++, Java, hay C# nói riêng và lập trình hướng đối tượng nói chung. Việc nắm được những kiến thức cơ bản này sẽ giúp chúng ta rất nhiều trong việc học những [nguyên lí](https://www.freecodecamp.org/news/solid-principles-explained-in-plain-english/), hay [design pattern](https://www.bing.com/ck/a?!&&p=cf932fb5745e49eeJmltdHM9MTY4MjY0MDAwMCZpZ3VpZD0yNTA3YTg3NC1hM2NiLTY3NGQtMjc0OC1iYWU0YTI0ZDY2YTgmaW5zaWQ9NTIyMg&ptn=3&hsh=3&fclid=2507a874-a3cb-674d-2748-bae4a24d66a8&psq=OOP+design+patterns&u=a1aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvRGVzaWduX1BhdHRlcm5z&ntb=1) phức tạp hơn của lập trình hướng đối tượng.
 
-### Đọc thêm
+<br>
 
-- [OOP 101: Object Relationships (phần 1)](https://frankiie12a9.github.io/posts/oop-object-relationship-1/#!)
+- Previous « <a href="https://frankiie12a9.github.io/posts/oop-object-relationship-1/">OOP 101 - Object Relationships (phần 1)</a>
 
-**_Mình viết blog để tổng hợp lại những gì mình đã học, và cũng như học cách trình bày sao cho người khác có thể hiểu được, nên bài viết có thể tồn tại bug hoặc chưa hoàn thiện đâu đó. Nếu có gì liên quan đến bài viết, cần giúp debug, etc. thì đừng ngần ngại mà hãy cứ nhắn tin cho mình qua [Facebook](https://www.facebook.com/frankiie12a9/) nha._**
+<br>
+
+_Mình viết blog để tổng hợp lại những gì mình đã học, và cũng như học cách trình bày sao cho người khác có thể hiểu được, nên bài viết có thể tồn tại bug hoặc chưa hoàn thiện đâu đó. Nếu có gì liên quan đến bài viết, cần giúp debug, etc. thì đừng ngần ngại mà hãy cứ nhắn tin cho mình qua [Facebook](https://www.facebook.com/frankiie12a9/) nha._

@@ -380,6 +380,7 @@ public:
 
 // Driver
 int main() {
+    // Khởi tạo và
     Computer computer{
       "Dell DX-3",
       {8, 4},           // CPU
@@ -434,7 +435,7 @@ class RemoteComputer
 private:
   std::string m_name;
 
-  // other members are ommited for brevity
+  // các biến thành viên khác không cần thiết đã được lược bỏ để giúp code dễ hình dung
 
 public:
   RemoteComputer(const std::string &name) : m_name{ name } {}
@@ -473,12 +474,16 @@ public:
 
 // Driver
 int main() {
+    // Khai báo và khởi tạo Computer
     Computer computer { "Dell DX-3" };
 
+    // Khai báo và khởi tạo RemoteComputer
     RemoteComputer remoteComputer { "Macbook Pro" };
 
+    // Khai báo và khởi tạo User
     User user {1, "alice"};
 
+    // Gán tham chiếu tới User
     computer.setUsedBy(&user);
 
     // User hiện tại kết nối với Remote Computer thông qua Computer trung gian
@@ -603,11 +608,14 @@ public:
 
 // Driver
 int main()  {
+    // khai báo và khởi tạo một User
     User user{ "Alice" };
 
+    // khai báo và khởi tạo 2 Computer
     Computer computer{ "Dell" };
     Computer computer1{ "HP" };
 
+    // User `Alice` lúc này có thể dùng song song hai Computer
     computer1.setUsedBy(&user); // Liên kết User với Computer
     computer2.setUsedBy(&user); // Liên kết User với Computer1
 
@@ -633,6 +641,10 @@ Mặt khác, việc sử dụng liên kết gián tiếp giúp code giữa các 
 | Hướng quan hệ      | Đơn hướng        | Đơn hướng        | Đơn hướng/Đa hướng |
 | Động từ quan hệ    | Has-a            | Has-a            | Uses-a             |
 
-</br>
+<br>
+
+- Next » <a href="https://frankiie12a9.github.io/posts/oop-object-relationship-2/">OOP 101 - Object Relationships (phần 2)</a>
+
+<br>
 
 **_Mình viết blog để tổng hợp lại những gì mình đã học, và cũng như học cách trình bày sao cho người khác có thể hiểu được, nên bài viết có thể tồn tại bug hoặc chưa hoàn thiện đâu đó. Nếu có gì liên quan đến bài viết, cần giúp debug, etc. thì đừng ngần ngại mà hãy cứ nhắn tin cho mình qua [Facebook](https://www.facebook.com/frankiie12a9/) nha._**
