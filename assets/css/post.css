@@ -26,11 +26,13 @@
 }
 html,
 body {
-  color: var(--white-2);
+  /* color: var(--white-2); */
+  color: rgb(206, 201, 199);
   background-color: var(--gray-6);
   font-family: "JetBrains Mono", monospace;
   line-height: 2rem;
-  background-color: var(--gray-5);
+  /* background-color: var(--gray-5); */
+  background-color: rgb(57, 61, 68);
 }
 .content a {
   color: cyan;
